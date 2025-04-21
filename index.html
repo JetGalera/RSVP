@@ -1,71 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wedding Invitation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav>
-    <div class="nav-container">
-      <a href="#" class="logo">Wedding</a>
-      <ul class="nav-links">
-        <li><a href="#event-details">Event Details</a></li>
-        <li><a href="#rsvp-form">RSVP</a></li>
-      </ul>
+
+  <!-- Invitation Popup -->
+  <div class="invitation-popup" id="popup">
+    <div class="popup-content">
+      <h1>You are invited!</h1>
+      <button id="openInvite">
+        💌 Open Invitation
+      </button>
     </div>
-  </nav>
+  </div>
 
-  <!-- Home Page Section -->
-  <section class="home">
-    <h1>Welcome to Our Wedding</h1>
-    <p>We're so excited to celebrate our special day with you!</p>
-    <div id="countdown"></div>
-  </section>
+  <!-- Main Content (Initially Hidden) -->
+  <main id="mainContent" class="hidden">
+    <section class="welcome">
+      <h1>Welcome to My Wedding</h1>
+    </section>
 
-  <!-- Event Details -->
-  <section id="event-details" class="event-details">
-    <h2>Event Details</h2>
-    <p>Date: 25th December 2025</p>
-    <p>Time: 4:00 PM</p>
-    <p>Venue: The Grand Hall, City Center</p>
-  </section>
+    <section class="rsvp">
+      <h2>RSVP</h2>
+      <form id="rsvpForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <select name="attendance" required>
+          <option value="" disabled selected>Will you attend?</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <button type="submit">Send RSVP</button>
+      </form>
+    </section>
 
-  <!-- RSVP Form -->
-  <section id="rsvp-form" class="rsvp-form">
-    <h2>RSVP</h2>
-    <form id="rsvp">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="attendance">Will you be attending?</label>
-      <select id="attendance" name="attendance" required>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
-
-      <label for="meal">Meal Preference:</label>
-      <select id="meal" name="meal" required>
-        <option value="vegetarian">Vegetarian</option>
-        <option value="non-vegetarian">Non-Vegetarian</option>
-        <option value="vegan">Vegan</option>
-      </select>
-
-      <button type="submit">Submit RSVP</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-links">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">Twitter</a>
-    </div>
-  </footer>
+    <footer>
+      <a href="#" target="_blank">Instagram</a> |
+      <a href="#" target="_blank">Facebook</a> |
+      <a href="#" target="_blank">Twitter</a>
+    </footer>
+  </main>
 
   <script src="script.js"></script>
 </body>

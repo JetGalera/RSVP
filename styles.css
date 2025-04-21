@@ -2,58 +2,50 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: url('https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-  background-size: cover;
+  background: url('wedding-bg.jpg') no-repeat center center/cover;
+  min-height: 100vh;
   color: #333;
-  overflow-x: hidden;
 }
 
-.invitation-popup {
+.popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 10;
-  animation: zoomIn 0.7s ease;
+  justify-content: center;
+  z-index: 1000;
+  animation: zoomIn 0.6s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .popup-content {
   text-align: center;
-  padding: 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  transform: scale(0.8);
-  animation: scaleUp 0.6s ease forwards;
 }
 
-@keyframes scaleUp {
-  to {
-    transform: scale(1);
-  }
+.sticker {
+  width: 100px;
+  transition: transform 0.2s;
 }
 
-#openInvite {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  padding: 0.6rem 1.5rem;
-  background: #ff7f7f;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-#openInvite:hover {
+.sticker:hover {
   transform: scale(1.1);
 }
 
@@ -61,60 +53,55 @@ body {
   display: none;
 }
 
-main {
-  padding: 3rem 2rem;
+.main-heading {
   text-align: center;
-}
-
-.welcome h1 {
-  font-size: 3rem;
-  margin-bottom: 3rem;
-  color: #fff;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-}
-
-.rsvp h2 {
+  margin: 40px 0 20px;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #fff;
 }
 
-form {
-  max-width: 400px;
+.countdown {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.rsvp-container {
+  max-width: 500px;
   margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
-form input, form select {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  border: none;
+.rsvp-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.rsvp-container input,
+.rsvp-container select,
+.rsvp-container button {
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 1px solid #aaa;
   border-radius: 8px;
 }
 
-form button {
-  background: #ff9999;
-  color: white;
-  padding: 1rem 2rem;
-  font-size: 1rem;
+.details-btn {
+  margin: 30px auto;
+  display: block;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: #e8c9d3;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-form button:hover {
-  background: #ff7373;
-}
-
 footer {
-  margin-top: 3rem;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-  margin: 0 0.5rem;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.1rem;
+  padding-bottom: 20px;
 }

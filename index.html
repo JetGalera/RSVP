@@ -1,48 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wedding Invitation</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You Are Invited!</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Invitation Popup -->
-  <div class="invitation-popup" id="popup">
+  <!-- Pop-up Invitation -->
+  <div id="invitation-popup" class="popup">
     <div class="popup-content">
       <h1>You are invited!</h1>
-      <button id="openInvite">
-        💌 Open Invitation
+      <button id="open-invite">
+        <img src="sticker.png" alt="Click Me" class="sticker">
       </button>
     </div>
   </div>
 
-  <!-- Main Content (Initially Hidden) -->
-  <main id="mainContent" class="hidden">
-    <section class="welcome">
-      <h1>Welcome to My Wedding</h1>
-    </section>
+  <!-- Main Content -->
+  <div id="main-content" class="hidden">
+    <h1 class="main-heading">Welcome to My Wedding</h1>
 
-    <section class="rsvp">
+    <div class="countdown" id="countdown"></div>
+
+    <div class="rsvp-container">
       <h2>RSVP</h2>
-      <form id="rsvpForm">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <select name="attendance" required>
-          <option value="" disabled selected>Will you attend?</option>
+      <form id="rsvp-form">
+        <input type="text" placeholder="Your Name" required>
+        <select required>
+          <option value="">Will you attend?</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
-        <button type="submit">Send RSVP</button>
+        <button type="submit">Submit</button>
       </form>
-    </section>
+    </div>
+
+    <button id="show-details" class="details-btn">Show Wedding Details</button>
+
+    <div id="details-popup" class="popup hidden">
+      <div class="popup-content">
+        <h2>Wedding Details</h2>
+        <p><strong>Date:</strong> December 25, 2025</p>
+        <p><strong>Time:</strong> 4:00 PM</p>
+        <p><strong>Venue:</strong> Sunset Garden, Cebu City</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!..."
+          width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <button id="close-details">Close</button>
+      </div>
+    </div>
 
     <footer>
-      <a href="#" target="_blank">Instagram</a> |
-      <a href="#" target="_blank">Facebook</a> |
-      <a href="#" target="_blank">Twitter</a>
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a>
     </footer>
-  </main>
+  </div>
 
   <script src="script.js"></script>
 </body>

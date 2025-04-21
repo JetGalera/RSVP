@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background: url('wedding-bg.jpg') no-repeat center center/cover;
+  font-family: 'Playfair Display', serif;
+  background: url('https://images.unsplash.com/photo-1520350093058-04049a1787b5?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
   min-height: 100vh;
   color: #333;
 }
@@ -22,31 +22,40 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  animation: zoomIn 0.6s ease;
+  animation: fadeZoom 0.8s ease-out;
 }
 
-@keyframes zoomIn {
-  from {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+@keyframes fadeZoom {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 .popup-content {
   text-align: center;
+  animation: popBounce 1s ease;
+}
+
+@keyframes popBounce {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.popup-content h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #8e4e4e;
+  margin-bottom: 20px;
 }
 
 .sticker {
-  width: 100px;
-  transition: transform 0.2s;
+  width: 120px;
+  transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .sticker:hover {
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(-5deg);
 }
 
 .hidden {
@@ -55,53 +64,94 @@ body {
 
 .main-heading {
   text-align: center;
-  margin: 40px 0 20px;
-  font-size: 2.5rem;
+  margin-top: 60px;
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 6px #00000070;
 }
 
 .countdown {
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin: 20px auto 30px;
+  color: #fff;
+  text-shadow: 1px 1px 4px #000;
+  background: rgba(0,0,0,0.3);
+  padding: 30px 20px;
+  border-radius: 12px;
+  display: inline-block;
 }
 
 .rsvp-container {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 30px auto;
+  background: rgba(255,255,255,0.95);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
   text-align: center;
-  font-size: 1.5rem;
+}
+
+.rsvp-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #8e4e4e;
 }
 
 .rsvp-container form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 10px;
+  gap: 20px;
 }
 
 .rsvp-container input,
 .rsvp-container select,
 .rsvp-container button {
-  padding: 10px;
+  padding: 14px;
   font-size: 1.2rem;
-  border: 1px solid #aaa;
-  border-radius: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .details-btn {
-  margin: 30px auto;
+  margin: 30px auto 10px;
   display: block;
-  padding: 10px 20px;
-  font-size: 1.1rem;
+  padding: 12px 25px;
+  font-size: 1.2rem;
   background-color: #e8c9d3;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.details-btn:hover {
+  background-color: #d7aebc;
+}
+
+.popup-content iframe {
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#details-popup .popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 footer {
   text-align: center;
-  margin-top: 50px;
-  font-size: 1.1rem;
-  padding-bottom: 20px;
+  margin-top: 60px;
+  font-size: 1.2rem;
+  padding-bottom: 30px;
+  color: white;
+  text-shadow: 1px 1px 3px #000;
+}
+
+footer a {
+  color: #ffd5e5;
+  text-decoration: none;
+  margin: 0 15px;
 }

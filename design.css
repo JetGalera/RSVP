@@ -1,0 +1,126 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  color: #5D3F37;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #f0e6d2;
+  padding: 10px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #5D3F37;
+  font-weight: 600;
+}
+
+/* Home Section */
+.home {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #fff3e0;
+}
+
+#countdown {
+  font-size: 2em;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Event Details Section */
+.event-details {
+  padding: 30px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.event-details p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+/* RSVP Form */
+.rsvp-form {
+  background-color: #f0e6d2;
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rsvp-form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.rsvp-form input, .rsvp-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.rsvp-form button {
+  padding: 10px 20px;
+  background-color: #5D3F37;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.rsvp-form button:hover {
+  background-color: #8e6b4b;
+}
+
+/* Footer */
+footer {
+  background-color: #5D3F37;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}

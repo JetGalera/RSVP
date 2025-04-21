@@ -6,8 +6,7 @@
 
 body {
   font-family: 'Playfair Display', serif;
-  background: url('https://images.unsplash.com/photo-1520350093058-04049a1787b5?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-  min-height: 100vh;
+  background: #f8f0f2;
   color: #333;
 }
 
@@ -62,24 +61,29 @@ body {
   display: none;
 }
 
+#main-content {
+  background: url('https://images.unsplash.com/photo-1585386959984-a41552261b2e?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
 .main-heading {
   text-align: center;
-  margin-top: 60px;
   font-size: 3.5rem;
   color: #fff;
   text-shadow: 2px 2px 6px #00000070;
+  margin-bottom: 20px;
 }
 
 .countdown {
-  text-align: center;
   font-size: 2rem;
-  margin: 20px auto 30px;
   color: #fff;
   text-shadow: 1px 1px 4px #000;
   background: rgba(0,0,0,0.3);
-  padding: 30px 20px;
+  padding: 10px 20px;
   border-radius: 12px;
-  display: inline-block;
+  margin: 0 auto 40px auto;
+  width: fit-content;
 }
 
 .rsvp-container {
@@ -129,16 +133,14 @@ body {
   background-color: #d7aebc;
 }
 
-.popup-content iframe {
-  border-radius: 10px;
-  margin-top: 10px;
-}
-
 #details-popup .popup-content {
   background: white;
   padding: 30px;
   border-radius: 14px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 footer {

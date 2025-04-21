@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     main.classList.remove("hidden");
   });
 
+  document.getElementById("attendance").addEventListener("change", function() {
+    const firstOption = this.querySelector("option[value='']");
+    if (firstOption) {
+      firstOption.style.display = "none";  // Hides the placeholder once a selection is made
+    }
+  });
+
   showDetails.addEventListener("click", () => {
     detailsPopup.classList.remove("hidden");
   });

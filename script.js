@@ -10,7 +10,7 @@ import {
         apiKey: "AIzaSyC6bAzyUEbj1EI-2yhCkTw5D1WrPqT1HUA",
         authDomain: "rsvp-project-679ba.firebaseapp.com",
         projectId: "rsvp-project-679ba",
-        databaseURL: "https://rsvp-project-679ba-default-rtdb.firebaseio.com",
+        databaseURL: "https://rsvp-project-679ba-default-rtdb.asia-southeast1.firebasedatabase.app",
         storageBucket: "rsvp-project-679ba.appspot.com",
         messagingSenderId: "25642635412",
         appId: "1:25642635412:web:33bbdffc6afd92ec7c2481"

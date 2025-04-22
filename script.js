@@ -48,19 +48,7 @@ import {
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            countdown.innerHTML = $ {
-              days
-            }
-            d $ {
-              hours
-            }
-            h $ {
-              minutes
-            }
-            m $ {
-              seconds
-            }
-            s;
+            countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
           }
         };
         setInterval(updateCountdown, 1000);
@@ -86,15 +74,9 @@ import {
               attendance
             }).then(() => {
               if (attendance === "yes") {
-                rsvpMessage.innerText = Hi $ {
-                  name
-                }, we’ re so excited you 'll join us! See you at the wedding! 🎉;
+                rsvpMessage.innerText = `Hi ${name}, we’re so excited you'll join us! See you at the wedding! 🎉`;
               } else {
-                rsvpMessage.innerText = Hi $ {
-                  name
-                }, we 're sorry you can'
-                t make it, but thank you
-                for letting us know.💌;
+                rsvpMessage.innerText = `Hi ${name}, we're sorry you can't make it, but thank you for letting us know. 💌`;
               }
               rsvpModal.classList.remove("hidden");
               rsvpForm.reset();

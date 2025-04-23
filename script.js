@@ -4,7 +4,9 @@ import {
       import {
         getDatabase,
         ref,
-        push
+        push,
+        get,
+        child
       } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
       const firebaseConfig = {
         apiKey: "AIzaSyC6bAzyUEbj1EI-2yhCkTw5D1WrPqT1HUA",
@@ -62,14 +64,6 @@ import {
           detailsPopup.classList.add("hidden");
         });
         // RSVP Form Submission
-      import {
-          getDatabase,
-          ref,
-          push,
-          get,
-          child
-        } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
-        
         rsvpForm.addEventListener("submit", async (e) => {
           e.preventDefault();
         

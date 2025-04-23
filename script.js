@@ -62,52 +62,59 @@ import {
           detailsPopup.classList.add("hidden");
         });
         // RSVP Form Submission
-       rsvpForm.addEventListener("submit", async (e) => {
+      import {
+          getDatabase,
+          ref,
+          push,
+          get,
+          child
+        } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+        
+        rsvpForm.addEventListener("submit", async (e) => {
           e.preventDefault();
+        
           const name = rsvpForm.querySelector("input").value.trim();
           const attendance = rsvpForm.querySelector("select").value;
+          const rsvpRef = ref(database, "rsvps");
         
           if (!name || !attendance) return;
         
-          const rsvpRef = ref(database, "rsvps");
+          try {
+            const snapshot = await get(rsvpRef);
         
-          // Check if name already exists
-          import { get, child } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
-          const snapshot = await get(rsvpRef);
-          let duplicate = false;
+            let isDuplicate = false;
+            if (snapshot.exists()) {
+              snapshot.forEach(childSnap => {
+                const data = childSnap.val();
+                if (data.name.trim().toLowerCase() === name.toLowerCase()) {
+                  isDuplicate = true;
+                }
+              });
+            }
         
-          if (snapshot.exists()) {
-            snapshot.forEach(childSnap => {
-              const data = childSnap.val();
-              if (data.name.toLowerCase() === name.toLowerCase()) {
-                duplicate = true;
-              }
-            });
+            if (isDuplicate) {
+              alert(`The name "${name}" has already RSVP'd.`);
+              return;
+            }
+        
+            // Push to Firebase
+            await push(rsvpRef, { name, attendance });
+        
+            // Show modal
+            if (attendance === "yes") {
+              rsvpMessage.innerText = `Hi ${name}, we’re so excited you'll join us! 🎉`;
+            } else {
+              rsvpMessage.innerText = `Hi ${name}, we're sorry you can't make it 💌`;
+            }
+        
+            rsvpModal.classList.remove("hidden");
+            rsvpForm.reset();
+        
+          } catch (error) {
+            console.error("RSVP error:", error);
+            alert("Oops! Something went wrong.");
           }
-        
-          if (duplicate) {
-            alert(`The name "${name}" has already submitted an RSVP. 
-            If there is a change of heart in the previous answer, please let the couple know! Thank you`);
-            return;
-          }
-        
-          // Push new RSVP if name is unique
-          push(rsvpRef, { name, attendance })
-            .then(() => {
-              if (attendance === "yes") {
-                rsvpMessage.innerText = `Hi ${name}, we’re so excited you'll join us! 🎉`;
-              } else {
-                rsvpMessage.innerText = `Hi ${name}, we're sorry you can't make it 💌`;
-              }
-              rsvpModal.classList.remove("hidden");
-              rsvpForm.reset();
-            })
-            .catch((error) => {
-              console.error("Error saving RSVP:", error);
-              alert("There was an error. Please try again.");
-            });
         });
-
         // Close RSVP Modal
         closeModal.addEventListener("click", () => {
           rsvpModal.classList.add("hidden");

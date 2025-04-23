@@ -195,7 +195,17 @@
         background-color: #d7aebc;
       }
 
-      #details-popup .popup-content,
+      #details-popup .popup-content{
+        background: white;
+        padding: 50px;
+        border-radius: 14px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        max-width: 700px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+	  
 	  #rsvp-modal .popup-content{
         background: white;
         padding: 50px;
@@ -207,18 +217,26 @@
         overflow-y: auto;
       }
 
-      #details-popup h2,
+      #details-popup h2{
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+      }
+	  
 	  #rsvp-modal h2{
         font-size: 2.2rem;
         margin-bottom: 20px;
       }
 
-      #details-popup p,
+      #details-popup p{
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+	  
 	  #rsvp-modal p{
         font-size: 1.2rem;
         margin-bottom: 10px;
       }
-
+	
       footer {
         text-align: center;
         margin-top: 60px;

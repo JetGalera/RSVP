@@ -90,10 +90,4 @@ import {
         closeModal.addEventListener("click", () => {
           rsvpModal.classList.add("hidden");
         });
-        // Optional: Close modal if clicking outside of modal content
-        window.addEventListener("click", (e) => {
-          if (e.target === rsvpModal) {
-            rsvpModal.classList.add("hidden");
-          }
-        });
       });

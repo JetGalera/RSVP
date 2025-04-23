@@ -62,30 +62,52 @@ import {
           detailsPopup.classList.add("hidden");
         });
         // RSVP Form Submission
-        rsvpForm.addEventListener("submit", (e) => {
+       rsvpForm.addEventListener("submit", async (e) => {
           e.preventDefault();
           const name = rsvpForm.querySelector("input").value.trim();
           const attendance = rsvpForm.querySelector("select").value;
-          if (name && attendance) {
-            // Push data to Firebase
-            const rsvpRef = ref(database, "rsvps");
-            push(rsvpRef, {
-              name,
-              attendance
-            }).then(() => {
+        
+          if (!name || !attendance) return;
+        
+          const rsvpRef = ref(database, "rsvps");
+        
+          // Check if name already exists
+          import { get, child } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+          const snapshot = await get(rsvpRef);
+          let duplicate = false;
+        
+          if (snapshot.exists()) {
+            snapshot.forEach(childSnap => {
+              const data = childSnap.val();
+              if (data.name.toLowerCase() === name.toLowerCase()) {
+                duplicate = true;
+              }
+            });
+          }
+        
+          if (duplicate) {
+            alert(`The name "${name}" has already submitted an RSVP. 
+            If there is a change of heart in the previous answer, please let the couple know! Thank you`);
+            return;
+          }
+        
+          // Push new RSVP if name is unique
+          push(rsvpRef, { name, attendance })
+            .then(() => {
               if (attendance === "yes") {
-                rsvpMessage.innerText = `Hi ${name}, we’re so excited you'll join us! See you at the wedding! 🎉`;
+                rsvpMessage.innerText = `Hi ${name}, we’re so excited you'll join us! 🎉`;
               } else {
-                rsvpMessage.innerText = `Hi ${name}, we're sorry you can't make it, but thank you for letting us know. 💌`;
+                rsvpMessage.innerText = `Hi ${name}, we're sorry you can't make it 💌`;
               }
               rsvpModal.classList.remove("hidden");
               rsvpForm.reset();
-            }).catch((error) => {
+            })
+            .catch((error) => {
               console.error("Error saving RSVP:", error);
               alert("There was an error. Please try again.");
             });
-          }
         });
+
         // Close RSVP Modal
         closeModal.addEventListener("click", () => {
           rsvpModal.classList.add("hidden");

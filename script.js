@@ -87,9 +87,13 @@ import {
             }
         
             if (isDuplicate) {
-              alert(`The name "${name}" has already RSVP'd.`);
-              return;
-            }
+                  rsvpMessage.innerText = `Hi ${name}, you’ve already submitted your RSVP.
+                                           If you have concern about your initial deciscion, please
+                                           contact the couple. Thank you! 💌`;
+                  rsvpModal.classList.remove("hidden");
+                  return;
+                }
+
         
             // Push to Firebase
             await push(rsvpRef, { name, attendance });

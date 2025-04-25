@@ -57,8 +57,8 @@ main {
 }
 
 section {
-  width: 80%;
-  max-width: 1000px;
+  width: 90%; /* Increased section width */
+  max-width: 1200px; /* Increased max-width for a larger container */
   background-color: white;
   padding: 20px;
   border-radius: 8px;
@@ -76,15 +76,13 @@ table {
   border-collapse: collapse;
   margin-top: 20px;
   display: block;
-  overflow-x: auto;
-  white-space: nowrap;
 }
 
 th, td {
-  padding: 12px;
+  padding: 16px; /* Increased padding for larger cells */
   text-align: left;
   border-bottom: 1px solid #ddd;
-  font-size: 1.1rem;
+  font-size: 1.2rem; /* Larger font size for better visibility */
 }
 
 th {
@@ -173,8 +171,8 @@ footer p {
   }
 
   th, td {
-    padding: 12px;
-    font-size: 1rem; /* Slightly larger font size on mobile */
+    padding: 14px;
+    font-size: 1.1rem; /* Slightly larger font size on mobile */
   }
 
   footer {

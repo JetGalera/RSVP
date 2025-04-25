@@ -87,16 +87,18 @@ import {
             }
         
             if (isDuplicate) {
-                  rsvpMessage.innerText = `Hi ${name}, you’ve already submitted your RSVP.
-                                           If you have concern about your initial deciscion, please
-                                           contact the couple. Thank you! 💌`;
-                  rsvpModal.classList.remove("hidden");
-                  return;
-                }
-
+              rsvpMessage.innerText = `Hi ${name}, you’ve already submitted your RSVP.
+                                       If you have concern about your initial decision, please
+                                       contact the couple. Thank you! 💌`;
+              rsvpModal.classList.remove("hidden");
+              return;
+            }
         
-            // Push to Firebase
-            await push(rsvpRef, { name, attendance });
+            // Get the current timestamp
+            const timestamp = Date.now();
+        
+            // Push to Firebase with the timestamp
+            await push(rsvpRef, { name, attendance, timestamp });
         
             // Show modal
             if (attendance === "yes") {

@@ -24,6 +24,10 @@
   function loadRSVPData() {
     const rsvpRef = ref(database, "rsvps");
     get(rsvpRef).then((snapshot) => {
+      if (!snapshot.exists()) {
+        console.error("No data found in Firebase.");
+        return;
+      }
       guestTable.innerHTML = ""; // Clear current table
       let index = 1;
       snapshot.forEach((childSnapshot) => {
@@ -33,8 +37,12 @@
         row.insertCell(0).innerText = index++;
         row.insertCell(1).innerText = data.name;
         row.insertCell(2).innerText = data.attendance;
-        row.insertCell(3).innerText = new Date(childSnapshot.key * 1).toLocaleString();
+
+        // No timestamp, just display "N/A"
+        row.insertCell(3).innerText = "N/A";  // Or you can display any other placeholder value
       });
+    }).catch((error) => {
+      console.error("Error loading RSVP data:", error);
     });
   }
 

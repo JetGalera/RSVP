@@ -1,0 +1,253 @@
+ @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Playfair Display', serif;
+        background: url('https://www.sunset.com/wp-content/uploads/garden-wedding-backdrop-pr-0418.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #333;
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+      }
+
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        animation: fadeZoom 0.8s ease-out;
+      }
+
+      @keyframes fadeZoom {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .popup-content {
+        text-align: center;
+        animation: popBounce 1s ease;
+      }
+
+      @keyframes popBounce {
+        0% {
+          transform: scale(0.8);
+        }
+
+        50% {
+          transform: scale(1.05);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .popup-content h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 3rem;
+        color: #8e4e4e;
+        margin-bottom: 20px;
+      }
+
+      .sticker {
+        width: 120px;
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
+
+      .sticker:hover {
+        transform: scale(1.15) rotate(-5deg);
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      #main-content {
+        padding: 60px 20px;
+      }
+
+      .main-heading {
+        text-align: center;
+        font-size: 3.5rem;
+        color: #fff;
+        text-shadow: 2px 2px 6px #00000070;
+        margin-bottom: 20px;
+      }
+
+      .countdown {
+        font-size: 2rem;
+        color: #fff;
+        text-shadow: 1px 1px 4px #000;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px 20px;
+        border-radius: 12px;
+        margin: 0 auto 40px auto;
+        width: fit-content;
+      }
+
+      .rsvp-container {
+        max-width: 500px;
+        margin: 30px auto;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .rsvp-container h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #8e4e4e;
+      }
+
+      .rsvp-container form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .rsvp-container input,
+      .rsvp-container select,
+      .rsvp-container button {
+        padding: 14px;
+        font-size: 1.2rem;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+
+      input,
+      select,
+      button {
+        appearance: none;
+        background-color: #fff;
+        color: #333;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      button:focus,
+      select:focus {
+        box-shadow: none;
+      }
+
+      select::-ms-expand {
+        display: none;
+      }
+
+      /* Close Button */
+      .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close-btn:hover,
+      .close-btn:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .details-btn {
+        margin: 30px auto 10px;
+        display: block;
+        padding: 12px 25px;
+        font-size: 1.2rem;
+        background-color: #e8c9d3;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .details-btn:hover {
+        background-color: #d7aebc;
+      }
+
+      #details-popup .popup-content{
+        background: white;
+        padding: 50px;
+        border-radius: 14px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        max-width: 700px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+	  
+	  #rsvp-modal .popup-content{
+        background: white;
+        padding: 50px;
+        border-radius: 14px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        max-width: 700px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      #details-popup h2{
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+      }
+	  
+	  #rsvp-modal h2{
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+      }
+
+      #details-popup p{
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+	  
+	  #rsvp-modal p{
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+	
+      footer {
+        text-align: center;
+        margin-top: 60px;
+        font-size: 1.2rem;
+        padding-bottom: 30px;
+        color: white;
+        text-shadow: 1px 1px 3px #000;
+      }
+
+      footer a {
+        color: #ffd5e5;
+        text-decoration: none;
+        margin: 0 15px;
+      }

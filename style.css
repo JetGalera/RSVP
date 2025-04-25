@@ -160,6 +160,11 @@
         box-shadow: none;
       }
 
+     button:hover {
+     background-color: #d7aebc; /* Change this to any color you prefer */
+     cursor: pointer;
+      }
+
       select::-ms-expand {
         display: none;
       }

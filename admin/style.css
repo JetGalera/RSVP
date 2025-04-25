@@ -57,9 +57,7 @@ main {
 }
 
 section {
-  width: 90%; /* Increased section width */
-  max-width: 1200px; /* Increased max-width for a larger container */
-  background-color: white;
+  width: 100%;  /* Ensures the section uses the full width of its parent */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -72,17 +70,18 @@ h2 {
 }
 
 table {
-  width: 100%;
+  width: 100%; /* Ensures full width of the container */
   border-collapse: collapse;
   margin-top: 20px;
   display: block;
+  white-space: nowrap; /* Prevents text overflow issues */
 }
 
 th, td {
-  padding: 16px; /* Increased padding for larger cells */
+  padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-  font-size: 1.2rem; /* Larger font size for better visibility */
+  font-size: 1.1rem;
 }
 
 th {
@@ -100,7 +99,7 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-  background-color: #e0f0f0; /* Lighter hover effect */
+  background-color: #e0f0f0;
 }
 
 .delete-btn {
@@ -167,12 +166,13 @@ footer p {
   }
 
   table {
+    width: 100%; /* Ensures table occupies full width even on mobile */
     font-size: 1rem; /* Slightly larger font on mobile */
   }
 
   th, td {
-    padding: 14px;
-    font-size: 1.1rem; /* Slightly larger font size on mobile */
+    padding: 12px;
+    font-size: 1rem; /* Slightly larger font size on mobile */
   }
 
   footer {

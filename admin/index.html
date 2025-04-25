@@ -38,10 +38,11 @@
     <p style="text-align:center; font-size: 0.8rem; color: #666;">&copy; 2025 RSVP Dashboard</p>
   </footer>
 
-  <!-- Firebase CDN links without type="module" -->
+  <!-- Remove type="module" from Firebase scripts -->
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
-  <!-- Correct the script path -->
-  <script src="script.js"></script>
+
+  <!-- Your own script -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>

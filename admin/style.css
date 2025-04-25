@@ -70,7 +70,7 @@ h2 {
 }
 
 table {
-  width: 300%; /* Ensures full width of the container */
+  width: 100%; /* Ensures full width of the container */
   border-collapse: collapse;
   margin-top: 20px;
   display: block;

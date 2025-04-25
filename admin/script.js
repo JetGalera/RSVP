@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { getDatabase, ref, child, get, remove } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+import { getDatabase, ref, get, remove } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC6bAzyUEbj1EI-2yhCkTw5D1WrPqT1HUA",
@@ -43,7 +43,7 @@ function loadRSVPData() {
       const deleteBtn = document.createElement("button");
       deleteBtn.innerText = "Delete";
       deleteBtn.classList.add("delete-btn");
-      
+
       // Add event listener to delete button
       deleteBtn.addEventListener("click", () => {
         deleteRSVP(childSnapshot.key, row);
@@ -51,6 +51,8 @@ function loadRSVPData() {
 
       deleteCell.appendChild(deleteBtn);
     });
+  }).catch((error) => {
+    console.error("Error fetching data: ", error);
   });
 }
 

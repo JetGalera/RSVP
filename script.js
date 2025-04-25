@@ -1,5 +1,13 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import { getDatabase, ref, push, get, child } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  get,
+  child
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC6bAzyUEbj1EI-2yhCkTw5D1WrPqT1HUA",
@@ -25,15 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const countdown = document.getElementById("countdown");
   const weddingDate = new Date("2025-12-25T16:00:00").getTime();
   const rsvpForm = document.getElementById("rsvp-form");
-  
+
   // Modal Elements
   const rsvpModal = document.getElementById("rsvp-modal");
   const rsvpMessage = document.getElementById("rsvp-message");
   const closeModal = document.getElementById("close-modal");
-  
-  // Music Player Integration
-  const audioElement = document.getElementById("background-music");
-  const playPauseBtn = document.getElementById("play-pause-btn");
+
+  // Music Element
+  const musicToggle = document.getElementById("music-toggle");
+  const backgroundMusic = document.getElementById("background-music");
 
   // Show main content
   openInvite.addEventListener("click", () => {
@@ -55,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
   };
+
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
@@ -71,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // RSVP Form Submission
   rsvpForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-
+    
     const name = rsvpForm.querySelector("input").value.trim();
     const attendance = rsvpForm.querySelector("select").value;
     const rsvpRef = ref(database, "rsvps");
@@ -92,9 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (isDuplicate) {
-        rsvpMessage.innerText = `Hi ${name}, you’ve already submitted your RSVP.
-                                 If you have concern about your initial decision, please
-                                 contact the couple. Thank you! 💌`;
+        rsvpMessage.innerText = `Hi ${name}, you’ve already submitted your RSVP. If you have a concern about your initial decision, please contact the couple. Thank you! 💌`;
         rsvpModal.classList.remove("hidden");
         return;
       }
@@ -126,14 +133,14 @@ document.addEventListener("DOMContentLoaded", () => {
     rsvpModal.classList.add("hidden");
   });
 
-  // Play/Pause music functionality
-  playPauseBtn.addEventListener("click", () => {
-    if (audioElement.paused) {
-      audioElement.play();
-      playPauseBtn.innerText = "Pause"; // Change text to "Pause"
+  // Music Toggle
+  musicToggle.addEventListener("click", () => {
+    if (backgroundMusic.paused) {
+      backgroundMusic.play();
+      musicToggle.innerText = "Pause Music";
     } else {
-      audioElement.pause();
-      playPauseBtn.innerText = "Play"; // Change text to "Play"
+      backgroundMusic.pause();
+      musicToggle.innerText = "Play Music";
     }
   });
 });

@@ -72,7 +72,13 @@ function deleteRSVP(guestId, row) {
 exportBtn.addEventListener("click", () => {
   let csv = "# , Name , Attendance , Timestamp\n";
   Array.from(guestTable.rows).forEach(row => {
-    let cells = Array.from(row.cells).map(cell => cell.innerText);
+    let cells = Array.from(row.cells).map((cell, index) => {
+      // Exclude the last column (the delete button)
+      if (index === row.cells.length - 1) {
+        return ''; // Skip the delete button column
+      }
+      return cell.innerText; // Get the text content of the other columns
+    });
     csv += cells.join(" , ") + "\n";
   });
 

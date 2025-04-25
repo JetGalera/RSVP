@@ -1,4 +1,6 @@
-// Firebase Setup (no need for import here if you're including the Firebase CDN scripts directly)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyC6bAzyUEbj1EI-2yhCkTw5D1WrPqT1HUA",
   authDomain: "rsvp-project-679ba.firebaseapp.com",
@@ -9,9 +11,9 @@ const firebaseConfig = {
   appId: "1:25642635412:web:33bbdffc6afd92ec7c2481"
 };
 
-// Firebase SDK initialization (via the CDN)
-const app = firebase.initializeApp(firebaseConfig);
-const database = firebase.database(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
 // DOM elements
 const guestTable = document.getElementById("guestTable").getElementsByTagName("tbody")[0];
@@ -19,8 +21,8 @@ const exportBtn = document.getElementById("exportBtn");
 
 // Fetch RSVP data
 function loadRSVPData() {
-  const rsvpRef = firebase.database().ref("rsvps");
-  rsvpRef.once('value').then((snapshot) => {
+  const rsvpRef = ref(database, "rsvps");
+  get(rsvpRef).then((snapshot) => {
     if (!snapshot.exists()) {
       console.error("No data found in Firebase.");
       return;

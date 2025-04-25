@@ -32,10 +32,20 @@ button {
   cursor: pointer;
   border-radius: 5px;
   font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #27ae60;
+}
+
+button:active {
+  background-color: #1e8e46; /* Darker shade when clicked */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
 }
 
 main {
@@ -65,12 +75,16 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 th, td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  font-size: 1.1rem;
 }
 
 th {
@@ -79,11 +93,18 @@ th {
   font-weight: bold;
 }
 
-tr:hover {
-  background-color: #f1f1f1;
+tr:nth-child(odd) {
+  background-color: #f9f9f9;
 }
 
-/* Delete button style */
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+tr:hover {
+  background-color: #e0f0f0; /* Lighter hover effect */
+}
+
 .delete-btn {
   background-color: #e74c3c;
   color: white;
@@ -92,22 +113,33 @@ tr:hover {
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem;
+  transition: background-color 0.3s ease;
 }
 
 .delete-btn:hover {
   background-color: #c0392b;
 }
 
+.delete-btn:active {
+  background-color: #a93226; /* Darker shade when clicked */
+}
+
+.delete-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
 footer {
   text-align: center;
-  font-size: 0.9rem;
-  color: #999;
+  font-size: 1rem;
+  color: #777;
   padding: 20px;
   background-color: #f4f7f6;
 }
 
 footer p {
   margin: 0;
+  color: #555; /* Slightly darker text for footer content */
 }
 
 /* Mobile responsiveness */
@@ -123,8 +155,8 @@ footer p {
   }
 
   button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 10px 18px; /* Slightly larger button padding on mobile */
+    font-size: 1rem;
   }
 
   main {
@@ -137,11 +169,12 @@ footer p {
   }
 
   table {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Slightly larger font on mobile */
   }
 
   th, td {
-    padding: 10px;
+    padding: 12px;
+    font-size: 1rem; /* Slightly larger font size on mobile */
   }
 
   footer {

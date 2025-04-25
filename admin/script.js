@@ -23,25 +23,43 @@ const exportBtn = document.getElementById("exportBtn");
 function loadRSVPData() {
   const rsvpRef = ref(database, "rsvps");
   get(rsvpRef).then((snapshot) => {
-    if (!snapshot.exists()) {
-      console.error("No data found in Firebase.");
-      return;
-    }
     guestTable.innerHTML = ""; // Clear current table
     let index = 1;
     snapshot.forEach((childSnapshot) => {
       const data = childSnapshot.val();
       const row = guestTable.insertRow();
 
+      // Add guest details to row
       row.insertCell(0).innerText = index++;
       row.insertCell(1).innerText = data.name;
       row.insertCell(2).innerText = data.attendance;
+      row.insertCell(3).innerText = new Date(childSnapshot.key * 1).toLocaleString();
 
-      // No timestamp, just display "N/A"
-      row.insertCell(3).innerText = "N/A";  // Or you can display any other placeholder value
+      // Add the delete button
+      const deleteCell = row.insertCell(4);
+      const deleteBtn = document.createElement("button");
+      deleteBtn.innerText = "Delete";
+      deleteBtn.classList.add("delete-btn");
+      
+      // Add event listener to delete button
+      deleteBtn.addEventListener("click", () => {
+        deleteRSVP(childSnapshot.key, row);
+      });
+
+      deleteCell.appendChild(deleteBtn);
     });
+  });
+}
+
+// Delete RSVP from Firebase and remove from table
+function deleteRSVP(guestId, row) {
+  const rsvpRef = ref(database, `rsvps/${guestId}`);
+  // Remove the guest data from Firebase
+  remove(rsvpRef).then(() => {
+    // Remove the row from the table
+    row.remove();
   }).catch((error) => {
-    console.error("Error loading RSVP data:", error);
+    console.error("Error deleting data: ", error);
   });
 }
 

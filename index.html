@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>You Are Invited!</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/531/531814.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Wedding Invitation Page" />
+    <title>You're Invited!</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/531/531814.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Invitation Popup -->
     <div id="invitation-popup" class="popup">
       <div class="popup-content">
         <h1 class="popup-title">You Are Invited!</h1>
-        <p class="popup-description">We’re thrilled to invite you to celebrate our special day.</p>
-        <img src="https://cdn2.iconfinder.com/data/icons/love-soft-fill/60/Flower-Boquete-loving-passion-flowers-512.png" alt="Invitation Sticker" class="sticker" id="open-invite">
+        <p class="popup-description">We're excited to have you celebrate our special day with us!</p>
+        <img src="https://cdn2.iconfinder.com/data/icons/love-soft-fill/60/Flower-Boquete-loving-passion-flowers-512.png" alt="Invitation Sticker" class="sticker" id="open-invite" />
       </div>
     </div>
 
-    <!-- Main Content After Invitation -->
+    <!-- Main Content -->
     <div id="main-content" class="hidden">
       <h1 class="main-heading">Welcome to Our Wedding Celebration!</h1>
 
       <!-- Countdown Timer -->
-      <div class="countdown" id="countdown">
-        <!-- Countdown will go here -->
-      </div>
+      <div class="countdown" id="countdown"></div>
 
-      <!-- RSVP Form -->
+      <!-- RSVP Section -->
       <div class="rsvp-container">
         <h2>RSVP</h2>
-        <p>We’d love to know if you’ll be joining us on our big day!</p>
         <form id="rsvp-form">
-          <input type="text" placeholder="Your Name" required aria-label="Your Name">
-          
-          <label for="attendance" aria-label="Will you attend the wedding?">Will you attend?</label>
+          <input type="text" placeholder="Your Name" required aria-label="Enter your name" />
+          <label for="attendance" aria-label="Will you attend?">Will you attend?</label>
           <select required id="attendance" aria-label="RSVP response">
             <option value="" disabled selected>Select an option</option>
             <option value="yes">Yes, I'll attend</option>
-            <option value="no">No, I cannot attend</option>
+            <option value="no">No, I can't attend</option>
           </select>
-          
-          <button type="submit" aria-label="Submit RSVP">Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
 
@@ -54,7 +50,7 @@
       </div>
 
       <!-- Wedding Details Button -->
-      <button id="show-details" class="details-btn" aria-label="Show Wedding Details">Wedding Details</button>
+      <button id="show-details" class="details-btn">View Wedding Details</button>
 
       <!-- Wedding Details Popup -->
       <div id="details-popup" class="popup hidden">
@@ -63,23 +59,19 @@
           <p><strong>Date:</strong> December 25, 2025</p>
           <p><strong>Time:</strong> 4:00 PM</p>
           <p><strong>Venue:</strong> Sunset Garden, Cebu City</p>
-
-          <!-- Venue Map -->
-          <iframe src="https://www.google.com/maps?q=Sunset+Garden,+Cebu+City&amp;output=embed&amp;zoom=17" width="100%" height="200" allowfullscreen loading="lazy" title="Map showing the venue location of Sunset Garden, Cebu City"></iframe>
-
+          <iframe src="https://www.google.com/maps?q=Sunset+Garden,+Cebu+City&amp;output=embed&amp;zoom=17" width="100%" height="200" allowfullscreen loading="lazy" title="Map of the venue"></iframe>
           <button id="close-details" class="details-btn">Close</button>
         </div>
       </div>
 
-      <!-- Social Media Links -->
+      <!-- Footer with Social Links -->
       <footer>
-        <a href="#" target="_blank" aria-label="Visit our Instagram">Instagram</a> | 
-        <a href="#" target="_blank" aria-label="Visit our Facebook">Facebook</a> | 
-        <a href="#" target="_blank" aria-label="Visit our Twitter">Twitter</a>
+        <a href="#" aria-label="Instagram">Instagram</a> | 
+        <a href="#" aria-label="Facebook">Facebook</a> | 
+        <a href="#" aria-label="Twitter">Twitter</a>
       </footer>
     </div>
 
-    <!-- External JavaScript -->
     <script type="module" src="script.js"></script>
   </body>
 </html>

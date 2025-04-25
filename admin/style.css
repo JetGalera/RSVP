@@ -57,7 +57,7 @@ main {
 }
 
 section {
-  width: 100%;  /* Ensures the section uses the full width of its parent */
+  width: 100%;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -70,11 +70,10 @@ h2 {
 }
 
 table {
-  width: 100%; /* Ensures full width of the container */
+  width: 100%;  /* Full width of container */
   border-collapse: collapse;
   margin-top: 20px;
-  display: block;
-  white-space: nowrap; /* Prevents text overflow issues */
+  overflow-x: auto;  /* Allow horizontal scroll */
 }
 
 th, td {
@@ -166,8 +165,8 @@ footer p {
   }
 
   table {
-    width: 100%; /* Ensures table occupies full width even on mobile */
     font-size: 1rem; /* Slightly larger font on mobile */
+    width: 100%; /* Ensures table occupies full width even on mobile */
   }
 
   th, td {

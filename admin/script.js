@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+import { getDatabase, ref, child, get, remove } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC6bAzyUEbj1EI-2yhCkTw5D1WrPqT1HUA",
@@ -33,7 +33,10 @@ function loadRSVPData() {
       row.insertCell(0).innerText = index++;
       row.insertCell(1).innerText = data.name;
       row.insertCell(2).innerText = data.attendance;
-      row.insertCell(3).innerText = new Date(childSnapshot.key * 1).toLocaleString();
+
+      // Convert timestamp to human-readable format
+      const timestamp = new Date(data.timestamp).toLocaleString();
+      row.insertCell(3).innerText = timestamp;
 
       // Add the delete button
       const deleteCell = row.insertCell(4);

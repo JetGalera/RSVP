@@ -1,4 +1,4 @@
-// Firebase Setup (no need for import here)
+// Firebase Setup (no need for import here if you're including the Firebase CDN scripts directly)
 const firebaseConfig = {
   apiKey: "AIzaSyC6bAzyUEbj1EI-2yhCkTw5D1WrPqT1HUA",
   authDomain: "rsvp-project-679ba.firebaseapp.com",

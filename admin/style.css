@@ -12,6 +12,7 @@ header {
   color: white;
   padding: 15px 20px;
   text-align: center;
+  margin-bottom: 15px; /* Reduce space between header and table */
 }
 
 header h1 {
@@ -53,27 +54,31 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: auto; /* Adjust height to fit content */
 }
 
 section {
   width: 100%;
-  padding: 20px;
+  max-width: 100%;  /* Ensure it can expand fully */
+  padding: 0;  /* Remove padding to avoid shrinking */
+  box-sizing: border-box;  /* Ensure padding does not affect the container width */
+  background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   font-size: 1.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;  /* Reduced margin for better spacing */
   color: #333;
 }
 
 table {
-  width: 100%;  /* Full width of container */
+  width: 100%;  /* Make sure table stretches to fill container */
   border-collapse: collapse;
-  margin-top: 20px;
-  overflow-x: auto;  /* Allow horizontal scroll */
+  margin-top: 10px;  /* Reduced margin for better spacing */
+  overflow-x: auto;  /* Allow horizontal scroll if needed */
+  display: block;  /* Ensures that the table is responsive */
 }
 
 th, td {
@@ -167,10 +172,11 @@ footer p {
   table {
     font-size: 1rem; /* Slightly larger font on mobile */
     width: 100%; /* Ensures table occupies full width even on mobile */
+    overflow-x: auto;  /* Allows scrolling on smaller screens */
   }
 
   th, td {
-    padding: 12px;
+    padding: 10px;  /* Reduced padding for better fit */
     font-size: 1rem; /* Slightly larger font size on mobile */
   }
 

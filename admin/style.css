@@ -5,6 +5,11 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Take up the full viewport height */
 }
 
 header {
@@ -12,7 +17,7 @@ header {
   color: white;
   padding: 15px 20px;
   text-align: center;
-  margin-bottom: 15px; /* Reduce space between header and table */
+  margin-bottom: 15px;
 }
 
 header h1 {
@@ -41,7 +46,7 @@ button:hover {
 }
 
 button:active {
-  background-color: #1e8e46; /* Darker shade when clicked */
+  background-color: #1e8e46;
 }
 
 button:focus {
@@ -54,14 +59,15 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto; /* Adjust height to fit content */
+  width: 100%; /* Full width for the main container */
+  height: auto;
+  box-sizing: border-box;
 }
 
 section {
-  width: 100%;
-  max-width: 100%;  /* Ensure it can expand fully */
-  padding: 0;  /* Remove padding to avoid shrinking */
-  box-sizing: border-box;  /* Ensure padding does not affect the container width */
+  width: auto;  /* Adjust width to fit the table */
+  max-width: 100%;  /* Ensure it doesn't go beyond 100% of its container */
+  padding: 20px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -69,21 +75,22 @@ section {
 
 h2 {
   font-size: 1.8rem;
-  margin-bottom: 10px;  /* Reduced margin for better spacing */
+  margin-bottom: 10px;
+  text-align: center; /* Center text */
   color: #333;
 }
 
 table {
-  width: 100%;  /* Make sure table stretches to fill container */
+  width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;  /* Reduced margin for better spacing */
-  overflow-x: auto;  /* Allow horizontal scroll if needed */
-  display: block;  /* Ensures that the table is responsive */
+  margin-top: 10px;
+  overflow-x: auto;
+  display: block;
 }
 
 th, td {
   padding: 12px;
-  text-align: left;
+  text-align: center;  /* Center text */
   border-bottom: 1px solid #ddd;
   font-size: 1.1rem;
 }
@@ -122,7 +129,7 @@ tr:hover {
 }
 
 .delete-btn:active {
-  background-color: #a93226; /* Darker shade when clicked */
+  background-color: #a93226;
 }
 
 .delete-btn:focus {
@@ -140,7 +147,7 @@ footer {
 
 footer p {
   margin: 0;
-  color: #555; /* Slightly darker text for footer content */
+  color: #555;
 }
 
 /* Mobile responsiveness */
@@ -156,7 +163,7 @@ footer p {
   }
 
   button {
-    padding: 10px 18px; /* Slightly larger button padding on mobile */
+    padding: 10px 18px;
     font-size: 1rem;
   }
 
@@ -170,14 +177,14 @@ footer p {
   }
 
   table {
-    font-size: 1rem; /* Slightly larger font on mobile */
-    width: 100%; /* Ensures table occupies full width even on mobile */
-    overflow-x: auto;  /* Allows scrolling on smaller screens */
+    font-size: 1rem;
+    width: 100%;
+    overflow-x: auto;
   }
 
   th, td {
-    padding: 10px;  /* Reduced padding for better fit */
-    font-size: 1rem; /* Slightly larger font size on mobile */
+    padding: 10px;
+    font-size: 1rem;
   }
 
   footer {

@@ -90,8 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Push to Firebase
-    await push(rsvpRef, { name, attendance });
+    // Add timestamp and push to Firebase
+    const timestamp = new Date().toISOString(); // Get current timestamp in ISO format
+    await push(rsvpRef, { name, attendance, submittedAt: timestamp });
 
     const message = attendance === "yes"
       ? `Yay, ${name}! We're so happy you can make it! 🎉`

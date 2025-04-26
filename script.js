@@ -1,146 +1,68 @@
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import {
-  getDatabase,
-  ref,
-  push,
-  get,
-  child
-} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+// Invitation popup logic
+document.getElementById("open-invite").addEventListener("click", () => {
+  document.getElementById("invitation-popup").classList.add("hidden");
+  document.getElementById("main-content").classList.remove("hidden");
+});
 
-const firebaseConfig = {
-  apiKey: "AIzaSyC6bAzyUEbj1EI-2yhCkTw5D1WrPqT1HUA",
-  authDomain: "rsvp-project-679ba.firebaseapp.com",
-  projectId: "rsvp-project-679ba",
-  databaseURL: "https://rsvp-project-679ba-default-rtdb.asia-southeast1.firebasedatabase.app",
-  storageBucket: "rsvp-project-679ba.appspot.com",
-  messagingSenderId: "25642635412",
-  appId: "1:25642635412:web:33bbdffc6afd92ec7c2481"
-};
+// Countdown logic
+const countdown = document.getElementById("countdown");
+const weddingDate = new Date("2025-12-13T16:00:00").getTime();
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+function updateCountdown() {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const popup = document.getElementById("invitation-popup");
-  const main = document.getElementById("main-content");
-  const openInvite = document.getElementById("open-invite");
-  const showDetails = document.getElementById("show-details");
-  const detailsPopup = document.getElementById("details-popup");
-  const closeDetails = document.getElementById("close-details");
-  const countdown = document.getElementById("countdown");
-  const weddingDate = new Date("2025-12-25T16:00:00").getTime();
-  const rsvpForm = document.getElementById("rsvp-form");
+  if (diff < 0) {
+    countdown.innerHTML = "It's Wedding Time! 🎉";
+    return;
+  }
 
-  // Modal Elements
-  const rsvpModal = document.getElementById("rsvp-modal");
-  const rsvpMessage = document.getElementById("rsvp-message");
-  const closeModal = document.getElementById("close-modal");
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
-  // Music Element
-  const musicToggle = document.getElementById("music-toggle");
-  const backgroundMusic = document.getElementById("background-music");
+  countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
-  // Show main content
-  openInvite.addEventListener("click", () => {
-    popup.classList.add("hidden");
-    main.classList.remove("hidden");
-  });
+// RSVP form logic
+document.getElementById("rsvp-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const attendance = document.getElementById("attendance").value;
 
-  // Countdown
-  const updateCountdown = () => {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-    if (distance <= 0) {
-      countdown.innerHTML = "The Wedding is Live!";
-    } else {
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-  };
+  const message = attendance === "yes"
+    ? `Yay, ${name}! We're so happy you can make it! 🎉`
+    : `We're sad you can't come, ${name}. But thank you for letting us know. ❤️`;
 
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
+  document.getElementById("rsvp-message").textContent = message;
+  document.getElementById("rsvp-modal").classList.remove("hidden");
+});
 
-  // Show Wedding Details Modal
-  showDetails.addEventListener("click", () => {
-    detailsPopup.classList.remove("hidden");
-  });
+document.getElementById("close-modal").addEventListener("click", () => {
+  document.getElementById("rsvp-modal").classList.add("hidden");
+});
 
-  // Close Wedding Details
-  closeDetails.addEventListener("click", () => {
-    detailsPopup.classList.add("hidden");
-  });
+// Wedding details popup
+document.getElementById("show-details").addEventListener("click", () => {
+  document.getElementById("details-popup").classList.remove("hidden");
+});
+document.getElementById("close-details").addEventListener("click", () => {
+  document.getElementById("details-popup").classList.add("hidden");
+});
 
-  // RSVP Form Submission
-  rsvpForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    
-    const name = rsvpForm.querySelector("input").value.trim();
-    const attendance = rsvpForm.querySelector("select").value;
-    const rsvpRef = ref(database, "rsvps");
+// Music toggle button
+const music = document.getElementById("background-music");
+const musicToggle = document.getElementById("music-toggle");
 
-    if (!name || !attendance) return;
-
-    try {
-      const snapshot = await get(rsvpRef);
-
-      let isDuplicate = false;
-      if (snapshot.exists()) {
-        snapshot.forEach(childSnap => {
-          const data = childSnap.val();
-          if (data.name.trim().toLowerCase() === name.toLowerCase()) {
-            isDuplicate = true;
-          }
-        });
-      }
-
-      if (isDuplicate) {
-        rsvpMessage.innerText = `Hi ${name}, you’ve already submitted your RSVP. If you have a concern about your initial decision, please contact the couple. Thank you! 💌`;
-        rsvpModal.classList.remove("hidden");
-        return;
-      }
-
-      // Get the current timestamp
-      const timestamp = Date.now();
-
-      // Push to Firebase with the timestamp
-      await push(rsvpRef, { name, attendance, timestamp });
-
-      // Show modal
-      if (attendance === "yes") {
-        rsvpMessage.innerText = `Hi ${name}, we’re so excited you'll join us! 🎉`;
-      } else {
-        rsvpMessage.innerText = `Hi ${name}, we're sorry you can't make it 💌`;
-      }
-
-      rsvpModal.classList.remove("hidden");
-      rsvpForm.reset();
-
-    } catch (error) {
-      console.error("RSVP error:", error);
-      alert("Oops! Something went wrong.");
-    }
-  });
-
-  // Close RSVP Modal
-  closeModal.addEventListener("click", () => {
-    rsvpModal.classList.add("hidden");
-  });
-
-  // Music Toggle
-  musicToggle.addEventListener("click", () => {
-    if (backgroundMusic.paused) {
-      backgroundMusic.play();
-      musicToggle.innerText = "Pause Music";
-    } else {
-      backgroundMusic.pause();
-      musicToggle.innerText = "Play Music";
-    }
-  });
+musicToggle?.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    musicToggle.textContent = "Pause Music";
+  } else {
+    music.pause();
+    musicToggle.textContent = "Play Music";
+  }
 });

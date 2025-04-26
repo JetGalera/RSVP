@@ -31,10 +31,10 @@ function loadRSVPData() {
 
       // Add guest details to row
       row.insertCell(0).innerText = index++;
-      row.insertCell(1).innerText = data.name;
-      row.insertCell(2).innerText = data.attendance;
+      row.insertCell(1).innerText = data.name || "";
+      row.insertCell(2).innerText = data.attendance || "";
 
-      // Convert timestamp to MM/DD/YYYY format
+      // Convert timestamp to human-readable format
       const timestampCell = row.insertCell(3);
       if (data.timestamp) {
         try {
@@ -42,10 +42,14 @@ function loadRSVPData() {
           if (isNaN(timestampObj)) {
             timestampCell.innerText = "Invalid Timestamp";
           } else {
-            timestampCell.innerText = timestampObj.toLocaleDateString("en-US", {
+            timestampCell.innerText = timestampObj.toLocaleString("en-US", {
               year: "numeric",
               month: "2-digit",
-              day: "2-digit"
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+              hour12: true
             });
           }
         } catch (e) {
@@ -88,9 +92,8 @@ exportBtn.addEventListener("click", () => {
   let csv = "# , Name , Attendance , Timestamp\n";
   Array.from(guestTable.rows).forEach(row => {
     let cells = Array.from(row.cells).map((cell, index) => {
-      // Exclude the last column (the delete button)
       if (index === row.cells.length - 1) {
-        return '';
+        return ''; // Skip the delete button column
       }
       return cell.innerText;
     });

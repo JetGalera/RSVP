@@ -34,11 +34,11 @@ function loadRSVPData() {
       row.insertCell(1).innerText = data.name || "";
       row.insertCell(2).innerText = data.attendance || "";
 
-      // Convert timestamp to human-readable format
+      // Convert submittedAt timestamp to human-readable format
       const timestampCell = row.insertCell(3);
-      if (data.timestamp) {
+      if (data.submittedAt) {
         try {
-          const timestampObj = new Date(data.timestamp);
+          const timestampObj = new Date(data.submittedAt);
           if (isNaN(timestampObj)) {
             timestampCell.innerText = "Invalid Timestamp";
           } else {

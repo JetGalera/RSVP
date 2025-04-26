@@ -1,3 +1,28 @@
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  get,
+  child
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC6bAzyUEbj1EI-2yhCkTw5D1WrPqT1HUA",
+  authDomain: "rsvp-project-679ba.firebaseapp.com",
+  projectId: "rsvp-project-679ba",
+  databaseURL: "https://rsvp-project-679ba-default-rtdb.asia-southeast1.firebasedatabase.app",
+  storageBucket: "rsvp-project-679ba.appspot.com",
+  messagingSenderId: "25642635412",
+  appId: "1:25642635412:web:33bbdffc6afd92ec7c2481"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
 document.addEventListener("DOMContentLoaded", () => {
   // Invitation popup logic
   document.getElementById("open-invite").addEventListener("click", () => {
@@ -40,10 +65,33 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCountdown();
 
   // RSVP form logic
-  document.getElementById("rsvp-form").addEventListener("submit", (e) => {
+  document.getElementById("rsvp-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     const name = document.getElementById("name").value.trim();
     const attendance = document.getElementById("attendance").value;
+    
+    // Firebase logic: Check for duplicates
+    const rsvpRef = ref(database, "rsvps");
+    const snapshot = await get(rsvpRef);
+    let isDuplicate = false;
+
+    if (snapshot.exists()) {
+      snapshot.forEach((childSnap) => {
+        const data = childSnap.val();
+        if (data.name.trim().toLowerCase() === name.toLowerCase()) {
+          isDuplicate = true;
+        }
+      });
+    }
+
+    if (isDuplicate) {
+      document.getElementById("rsvp-message").textContent = `Hi ${name}, you’ve already submitted your RSVP. If you have a concern about your initial decision, please contact the couple. Thank you! 💌`;
+      document.getElementById("rsvp-modal").classList.remove("hidden");
+      return;
+    }
+
+    // Push to Firebase
+    await push(rsvpRef, { name, attendance });
 
     const message = attendance === "yes"
       ? `Yay, ${name}! We're so happy you can make it! 🎉`
@@ -61,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("show-details").addEventListener("click", () => {
     document.getElementById("details-popup").classList.remove("hidden");
   });
+
   document.getElementById("close-details").addEventListener("click", () => {
     document.getElementById("details-popup").classList.add("hidden");
   });

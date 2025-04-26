@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>You Are Invited!</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/531/531814.png" type="image/png">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <!-- Invitation Popup -->
@@ -18,27 +18,24 @@
 
     <div id="main-content" class="hidden">
       <h1 class="main-heading">Joshua & Rain! ❤️</h1>
-
       <div class="countdown-container">
         <div class="countdown" id="countdown"></div>
-        <p class="countdown-message">Before the Big Night! 💍</p>
+        <p class="countdown-message" aria-label="before the Big Night!">Before the Big Night! 💍</p>
       </div>
-
       <div class="rsvp-container">
         <h2>RSVP</h2>
         <form id="rsvp-form">
-          <input type="text" id="name" placeholder="Your Name" required />
-          <label for="attendance">Will you attend?</label>
-          <select id="attendance" required>
+          <input type="text" placeholder="Your Name" id="name" required>
+          <label for="attendance" aria-label="Will you attend?">Will you attend?</label>
+          <select required id="attendance">
             <option value="" disabled selected>Select an option</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
           <button type="submit">Submit</button>
         </form>
-        <button id="music-toggle" class="details-btn">Pause Music</button>
       </div>
-
+      
       <!-- RSVP Modal -->
       <div id="rsvp-modal" class="popup hidden">
         <div class="popup-content">
@@ -48,19 +45,32 @@
         </div>
       </div>
 
-      <button id="show-details" class="details-btn">Show Wedding Details</button>
+      <button id="show-details" class="details-btn" aria-label="Show Wedding Details">Show Wedding Details</button>
 
       <!-- Wedding Details Popup -->
       <div id="details-popup" class="popup hidden">
         <div class="popup-content">
           <h2>Wedding Details</h2>
-          <p><strong>Date:</strong> December 13, 2025</p>
-          <p><strong>Time:</strong> 4:00 PM</p>
-          <p><strong>Venue:</strong> Pililla Church, Rizal City</p>
+          <p>
+            <strong>Date:</strong> December 13, 2025
+          </p>
+          <p>
+            <strong>Time:</strong> 4:00 PM
+          </p>
+          <p>
+            <strong>Venue:</strong> Pililla Church, Rizal City
+          </p>
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61803.14037961053!2d121.27871146020729!3d14.502117311114404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397eb24af01d23f%3A0xec1ae000f12ae67f!2sPililla%20Church%20Historical%20Marker!5e0!3m2!1sen!2sus!4v1745602152102!5m2!1sen!2sus" 
-            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade" title="Map showing the venue location of Pililla Church, Rizal City">
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            margin="0 auto"
+            display="block"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map showing the venue location of Pililla Church, Rizal City">
           </iframe>
           <button id="close-details" class="details-btn">Close</button>
         </div>
@@ -69,11 +79,13 @@
       <!-- Footer -->
       <footer>
         <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a>
+        <button id="music-toggle">Play Music</button>
       </footer>
     </div>
 
-    <audio autoplay loop id="background-music">
-      <source src="https://raw.githubusercontent.com/JetGalera/RSVP/main/resource/Palagi-TjMonterde.mp3" type="audio/mpeg" />
+    <!-- Background Music -->
+    <audio id="background-music">
+      <source src="https://raw.githubusercontent.com/JetGalera/RSVP/main/resource/Palagi-TjMonterde.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
 

@@ -271,6 +271,9 @@ footer {
   padding-bottom: 30px;
   color: white;
   text-shadow: 1px 1px 3px #000;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center the items */
 }
 
 footer a {
@@ -286,7 +289,7 @@ footer button {
   border-radius: 8px;
   cursor: pointer;
   font-size: 1.1rem;
-  margin-left: 20px;
+  margin-top: 20px; /* Space between social links and the button */
   transition: background-color 0.3s;
 }
 

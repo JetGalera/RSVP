@@ -57,7 +57,7 @@ document.getElementById("close-details").addEventListener("click", () => {
 const music = document.getElementById("background-music");
 const musicToggle = document.getElementById("music-toggle");
 
-musicToggle?.addEventListener("click", () => {
+function toggleMusic() {
   if (music.paused) {
     music.play();
     musicToggle.textContent = "Pause Music";
@@ -65,4 +65,16 @@ musicToggle?.addEventListener("click", () => {
     music.pause();
     musicToggle.textContent = "Play Music";
   }
+}
+
+// Check for autoplay issue - try to play the music once the page is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Try to autoplay music
+  music.play().catch((error) => {
+    // If autoplay is blocked, wait for user interaction to toggle
+    console.log("Autoplay blocked, user interaction needed.");
+  });
 });
+
+// Event listener for toggle button
+musicToggle?.addEventListener("click", toggleMusic);

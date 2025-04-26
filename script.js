@@ -2,6 +2,15 @@
 document.getElementById("open-invite").addEventListener("click", () => {
   document.getElementById("invitation-popup").classList.add("hidden");
   document.getElementById("main-content").classList.remove("hidden");
+
+  // Play music when the invitation is clicked
+  const music = document.getElementById("background-music");
+  music.play().catch((error) => {
+    console.log("Autoplay blocked, user interaction needed.");
+  });
+
+  // Change button text to "Pause Music" after music starts
+  document.getElementById("music-toggle").textContent = "Pause Music";
 });
 
 // Countdown logic
@@ -66,15 +75,6 @@ function toggleMusic() {
     musicToggle.textContent = "Play Music";
   }
 }
-
-// Check for autoplay issue - try to play the music once the page is fully loaded
-document.addEventListener("DOMContentLoaded", () => {
-  // Try to autoplay music
-  music.play().catch((error) => {
-    // If autoplay is blocked, wait for user interaction to toggle
-    console.log("Autoplay blocked, user interaction needed.");
-  });
-});
 
 // Event listener for toggle button
 musicToggle?.addEventListener("click", toggleMusic);

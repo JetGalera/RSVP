@@ -34,9 +34,26 @@ function loadRSVPData() {
       row.insertCell(1).innerText = data.name;
       row.insertCell(2).innerText = data.attendance;
 
-      // Convert timestamp to human-readable format
-      const timestamp = new Date(data.timestamp).toLocaleString();
-      row.insertCell(3).innerText = timestamp;
+      // Convert timestamp to MM/DD/YYYY format
+      const timestampCell = row.insertCell(3);
+      if (data.timestamp) {
+        try {
+          const timestampObj = new Date(data.timestamp);
+          if (isNaN(timestampObj)) {
+            timestampCell.innerText = "Invalid Timestamp";
+          } else {
+            timestampCell.innerText = timestampObj.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit"
+            });
+          }
+        } catch (e) {
+          timestampCell.innerText = "Error parsing date";
+        }
+      } else {
+        timestampCell.innerText = "No timestamp";
+      }
 
       // Add the delete button
       const deleteCell = row.insertCell(4);
@@ -59,9 +76,7 @@ function loadRSVPData() {
 // Delete RSVP from Firebase and remove from table
 function deleteRSVP(guestId, row) {
   const rsvpRef = ref(database, `rsvps/${guestId}`);
-  // Remove the guest data from Firebase
   remove(rsvpRef).then(() => {
-    // Remove the row from the table
     row.remove();
   }).catch((error) => {
     console.error("Error deleting data: ", error);
@@ -75,9 +90,9 @@ exportBtn.addEventListener("click", () => {
     let cells = Array.from(row.cells).map((cell, index) => {
       // Exclude the last column (the delete button)
       if (index === row.cells.length - 1) {
-        return ''; // Skip the delete button column
+        return '';
       }
-      return cell.innerText; // Get the text content of the other columns
+      return cell.innerText;
     });
     csv += cells.join(" , ") + "\n";
   });

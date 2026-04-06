@@ -6,6 +6,12 @@ body {
   color: #000;
 }
 
+.container {
+  max-width: 800px;  
+  margin: 0 auto;    
+  padding: 0 1em;    
+}
+
 .navbar {
   position: sticky;
   top: 0;
@@ -41,7 +47,7 @@ body {
 }
 
 .large-text {
-  font-size: 3em;
+  font-size: 2.5em;
   margin: 0.2em 0;
 }
 
@@ -85,12 +91,16 @@ body {
 }
 
 .timeline-text {
-  width: 50%;
+  width: 45%;
   padding: 1em;
 }
 
+.timeline-text h3 {
+  font-size: 1.1em;
+}
+
 .timeline-image {
-  width: 50%;
+  width: 45%;
   height: 200px;
   background: #eee;
   display: flex;
@@ -165,7 +175,8 @@ body {
 }
 
 .footer-image img {
+  max-width: 250px;
   width: 100%;
-  max-width: 1200px;
   height: auto;
+  object-fit: contain;
 }

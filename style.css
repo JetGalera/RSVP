@@ -192,6 +192,12 @@ body {
   font-size: 1em;
 }
 
+#location-modal .popup-content {
+  max-width: 750px;
+  width: 95%;
+  padding: 1em;
+}
+
 /* FAQ Section */
 .faq-item {
   margin: 1.5em 0; /* less vertical space */

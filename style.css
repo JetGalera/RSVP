@@ -157,6 +157,41 @@ body {
   background: #444;
 }
 
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 2em;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.popup-content input,
+.popup-content select,
+.popup-content button {
+  width: 100%;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
 /* FAQ Section */
 .faq-item {
   margin: 1.5em 0; /* less vertical space */

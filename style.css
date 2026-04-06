@@ -46,6 +46,10 @@ body {
   text-align: center;
 }
 
+p, li, h2 {
+  font-size: 3.5em;
+}
+
 .small-text {
   font-size: 3.1em;
   margin-bottom: 0.5em;

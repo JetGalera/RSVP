@@ -194,7 +194,7 @@ body {
   margin: 0 auto;
   aspect-ratio: 3 / 1; /* or try 3 / 1 for wide banner */
   overflow: hidden;
-  padding-top: 1em; 
+  margin-top: -4em;
 }
 
 .footer-image img {

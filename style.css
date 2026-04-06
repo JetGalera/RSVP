@@ -168,15 +168,24 @@ body {
   margin: 0;
 }
 
-/* Footer Image */
-.footer-image {
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
+/* Hero & Footer images */
+.hero .timeline-image,
+.footer-image .timeline-image,
+.hero .timeline-image img,
+.footer-image .timeline-image img {
+  width: 800px;          /* container width */
+  height: 100px;         /* container height */
+  margin: 0 auto;        /* center horizontally */
+  overflow: hidden;      /* crop excess */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.footer-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.hero .timeline-image img,
+.footer-image .timeline-image img {
+  width: 100%;           /* stretch to container width */
+  max-width: 700px;      /* at least 700px wide inside 800px container */
+  height: 100%;          /* fill container height */
+  object-fit: cover;     /* maintain rectangle without distortion */
 }

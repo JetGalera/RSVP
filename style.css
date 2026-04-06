@@ -68,6 +68,24 @@ body {
   color: #888;
 }
 
+/* Hero Image (Top Table) */
+.hero .timeline-image {
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .timeline-image img {
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
+  object-fit: cover;
+}
+
 .centered-text {
   text-align: center;
   line-height: 1.5em;
@@ -168,24 +186,15 @@ body {
   margin: 0;
 }
 
-/* Hero & Footer images */
-.hero .timeline-image,
-.footer-image .timeline-image,
-.hero .timeline-image img,
-.footer-image .timeline-image img {
-  width: 800px;          /* container width */
-  height: 100px;         /* container height */
-  margin: 0 auto;        /* center horizontally */
-  overflow: hidden;      /* crop excess */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.footer-image {
+  text-align: center;
+  padding: 2em 0;
 }
 
-.hero .timeline-image img,
-.footer-image .timeline-image img {
-  width: 100%;           /* stretch to container width */
-  max-width: 700px;      /* at least 700px wide inside 800px container */
-  height: 100%;          /* fill container height */
-  object-fit: cover;     /* maintain rectangle without distortion */
+.footer-image img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: cover;
 }

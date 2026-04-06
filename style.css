@@ -36,7 +36,7 @@ body {
   font-weight: bold;
 }
 
-.hero, .date, .location, .schedule, .dress-code, .rsvp, .faq, .footer {
+.hero, .date, .location, .schedule, .dress-code, .rsvp, .faq{
   padding: 4em 2em;
   text-align: center;
 }
@@ -189,6 +189,7 @@ body {
   margin: 0 auto;
   aspect-ratio: 3 / 1; /* or try 3 / 1 for wide banner */
   overflow: hidden;
+  padding-top: 1em; 
 }
 
 .footer-image img {

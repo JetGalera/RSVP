@@ -36,8 +36,13 @@ body {
   font-weight: bold;
 }
 
-.hero, .date, .location, .schedule, .dress-code, .rsvp, .faq{
+.date, .location, .schedule, .dress-code, .rsvp, .faq{
   padding: 4em 2em;
+  text-align: center;
+}
+
+.hero, .footer {
+  padding: 1em 2em;
   text-align: center;
 }
 

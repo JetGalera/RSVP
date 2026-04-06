@@ -187,18 +187,17 @@ body {
 }
 
 
-/* Footer Image (Long Table at bottom) */
 .footer-image {
-  width: 100%;         /* full page width */
-  overflow: hidden;    /* crop any excess if needed */
-  padding: 2em 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 2em 0;
+  overflow: hidden; /* just in case */
 }
 
 .footer-image img {
-  width: 100%;         /* stretch to fill container horizontally */
-  height: 400px;       /* fixed rectangular height */
-  object-fit: cover;   /* fill rectangle without leaving gaps */
+  width: auto;           /* let the picture keep its original aspect ratio */
+  max-width: 90%;        /* fill most of the container horizontally */
+  height: 300px;         /* rectangle height */
+  object-fit: contain;   /* show entire picture without cropping */
 }

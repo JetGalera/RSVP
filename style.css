@@ -125,7 +125,7 @@ body {
   justify-content: center;
   align-items: center;
   font-style: italic;
-  color: #888;
+  /* color: #888; */
 }
 
 .timeline-image img {

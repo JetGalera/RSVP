@@ -46,8 +46,12 @@ body {
   text-align: center;
 }
 
-p, li, h2 {
+li, h2 {
   font-size: 3.5em;
+}
+
+p {
+ font-size: 1.5em;
 }
 
 .small-text {

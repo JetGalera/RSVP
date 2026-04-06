@@ -159,32 +159,70 @@ body {
 
 /* FAQ Section */
 .faq-item {
-  margin: 2em 0;
+  margin: 1.5em 0; /* less vertical space */
+  border-radius: 8px; /* rounded corners for the whole item */
+  overflow: hidden; /* clip inner borders nicely */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* subtle shadow for depth */
 }
 
+/* Button style */
 .faq-question {
   width: 100%;
-  background: #f5f5f5;
-  border: 1px solid #ccc;
-  padding: 1em;
+  background: #fafafa; /* light, neutral */
+  border: none; /* remove default borders */
+  padding: 1em 1.2em;
   font-size: 1em;
   text-align: left;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background 0.3s ease;
+  -webkit-tap-highlight-color: transparent; /* remove iOS blue */
+  outline: none; /* remove focus outline */
 }
 
+.faq-question:hover {
+  background: #f0f0f0; /* subtle hover effect on desktop */
+}
+
+.faq-question:active {
+  background: #e0e0e0; /* tap effect for mobile */
+}
+
+/* Answer */
 .faq-answer {
   display: none;
-  padding: 0.5em 1em 1em;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  padding: 0.8em 1.2em;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  color: #333;
 }
 
-.faq-answer p {
-  margin: 0;
+/* Optional: smooth expand/collapse */
+.faq-answer.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Small tweak for mobile */
+@media (max-width: 600px) {
+  .faq-question {
+    font-size: 1em;
+    padding: 0.8em 1em;
+  }
+
+  .faq-answer {
+    font-size: 0.95em;
+    padding: 0.6em 1em;
+  }
 }
 
 

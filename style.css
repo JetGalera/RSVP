@@ -175,7 +175,7 @@ body {
 }
 
 .footer-image img {
-  max-width: 750px;
+  max-width: 250px;
   width: 100%;
   height: auto;
   object-fit: contain;

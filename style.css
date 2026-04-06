@@ -67,17 +67,20 @@ body {
   line-height: 1.5em;
 }
 
-.schedule .timeline-item, .dress-code .timeline-item {
+.schedule .timeline-item,
+.dress-code .timeline-item {
   display: flex;
   align-items: center;
   margin: 3em 0;
 }
 
-.schedule .timeline-item.left, .dress-code .timeline-item.left {
+.schedule .timeline-item.left,
+.dress-code .timeline-item.left {
   flex-direction: row;
 }
 
-.schedule .timeline-item.right, .dress-code .timeline-item.right {
+.schedule .timeline-item.right,
+.dress-code .timeline-item.right {
   flex-direction: row-reverse;
 }
 

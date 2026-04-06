@@ -137,6 +137,25 @@
   </div>
 </section>
 
+<!-- RSVP Modal -->
+<div id="rsvp-modal" class="popup hidden">
+  <div class="popup-content">
+    <h2>RSVP</h2>
+    <form id="rsvp-form">
+      <input type="text" placeholder="Your Name" id="name" required>
+      <label for="attendance">Will you attend?</label>
+      <select id="attendance" required>
+        <option value="" disabled selected>Select an option</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="rsvp-message"></p>
+    <button id="close-modal">Close</button>
+  </div>
+</div>
+
 <!-- FAQ Section -->
 <section class="faq" id="faq">
   <h3>FAQ</h3>

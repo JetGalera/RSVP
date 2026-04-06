@@ -71,7 +71,7 @@ body {
 /* Hero Image (Top Table) */
 .hero .timeline-image {
   width: 800px;
-  height: 400px;
+  height: 550px;
   margin: 0 auto;
   overflow: hidden;
   display: flex;
@@ -187,14 +187,18 @@ body {
 }
 
 
+/* Footer Image (Long Table at bottom) */
 .footer-image {
-  text-align: center;
+  width: 100%;         /* full page width */
+  overflow: hidden;    /* crop any excess if needed */
   padding: 2em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-image img {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  object-fit: cover;
+  width: 100%;         /* stretch to fill container horizontally */
+  height: 400px;       /* fixed rectangular height */
+  object-fit: cover;   /* fill rectangle without leaving gaps */
 }

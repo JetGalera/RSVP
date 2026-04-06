@@ -193,7 +193,7 @@ body {
 
 .footer-image img {
   width: auto;           /* let the picture keep its original aspect ratio */
-  max-width: 90%;        /* fill most of the container horizontally */
+  max-width: 200%;        /* fill most of the container horizontally */
   height: auto;         /* rectangle height */
   object-fit: contain;   /* show entire picture without cropping */
 }

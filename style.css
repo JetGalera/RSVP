@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 900px;  
+  max-width: 800px;  
   margin: 0 auto;    
   padding: 0 1em;    
 }
@@ -46,30 +46,18 @@ body {
   text-align: center;
 }
 
-h2 {
-  font-size: 3.5em;
-}
-
-li {
-  font-size: 2.0em;
-}
-
-p {
- font-size: 1.5em;
-}
-
 .small-text {
-  font-size: 3.1em;
+  font-size: 1.2em;
   margin-bottom: 0.5em;
 }
 
 .large-text {
-  font-size: 5.5em;
+  font-size: 3.5em;
   margin: 0.2em 0;
 }
 
 .caption {
-  font-size: 3.1em;
+  font-size: 1.1em;
   margin-top: 1em;
 }
 
@@ -101,7 +89,7 @@ p {
 
 .centered-text {
   text-align: center;
-  line-height: 3.5em;
+  line-height: 1.5em;
 }
 
 .schedule .timeline-item,
@@ -127,11 +115,11 @@ p {
 }
 
 .timeline-text h3 {
-  font-size: 3.2em;
+  font-size: 1.2em;
 }
 
 .timeline-image {
-  width: 55%;
+  width: 45%;
   height: 200px;
   /* background: #eee; */
   display: flex;
@@ -142,7 +130,7 @@ p {
 }
 
 .timeline-image img {
-  max-width: 300px;
+  max-width: 250px;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -206,6 +194,7 @@ p {
   margin: 0 auto;
   aspect-ratio: 3 / 1; /* or try 3 / 1 for wide banner */
   overflow: hidden;
+  padding-top: 1em; 
   margin-top: -4em;
 }
 

@@ -1,3 +1,4 @@
+// Import Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import { getDatabase, ref, push, get } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
 
@@ -13,6 +14,23 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
+// Location Modal
+const locationBtn = document.getElementById("view-location");
+const locationModal = document.getElementById("location-modal");
+const closeLocation = document.getElementById("close-location");
+
+if (locationBtn && locationModal) {
+  locationBtn.addEventListener("click", () => {
+    locationModal.classList.remove("hidden");
+  });
+}
+
+if (closeLocation && locationModal) {
+  closeLocation.addEventListener("click", () => {
+    locationModal.classList.add("hidden");
+  });
+}
 
 // Open RSVP modal
 const openBtn = document.getElementById("confirm-attendance");

@@ -8,8 +8,13 @@ body {
   color: #000;
 }
 
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
 h3 {
-  font-size: 2.2em;
+  font-size: 2.8em;
 }
 
 .container {
@@ -45,6 +50,10 @@ h3 {
 .date, .location, .schedule, .dress-code, .rsvp, .faq{
   padding: 4em 2em;
   text-align: center;
+}
+
+.location, .dress-code, .faq {
+  background: #fafafa;
 }
 
 .hero, .footer {
@@ -103,6 +112,7 @@ h3 {
   display: flex;
   align-items: center;
   margin: 3em 0;
+  gap: 1em;
 }
 
 .schedule .timeline-item.left,
@@ -117,7 +127,7 @@ h3 {
 
 .timeline-text {
   width: 45%;
-  padding: 1em;
+  padding: 1em 2em;
 }
 
 .timeline-text h3 {
@@ -150,17 +160,19 @@ h3 {
 }
 
 .centered-button button {
-  padding: 0.8em 1.5em;
+  padding: 0.9em 1.8em;
   font-size: 1em;
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .centered-button button:hover {
-  background: #444;
+  background: #333;
+  transform: translateY(-2px);
 }
 
 .popup {
@@ -183,10 +195,11 @@ h3 {
 .popup-content {
   background: #fff;
   padding: 2em;
-  border-radius: 10px;
+  border-radius: 12px;
   width: 90%;
   max-width: 400px;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .popup-content input,
@@ -238,6 +251,10 @@ h3 {
 }
 
 /* Answer */
+.faq {
+  padding-bottom: 2em;
+}
+
 .faq-answer {
   display: none;
   padding: 0.8em 1.2em;
@@ -272,7 +289,6 @@ h3 {
   }
 }
 
-
 .footer-image {
   width: 100%;
   max-width: 800px;
@@ -280,11 +296,28 @@ h3 {
   aspect-ratio: 3 / 1; /* or try 3 / 1 for wide banner */
   overflow: hidden;
   padding-top: 1em; 
-  margin-top: -4em;
 }
 
 .footer-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Mobile Responsiveness*/
+@media (max-width: 768px) {
+  .schedule .timeline-item,
+  .dress-code .timeline-item {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .timeline-text,
+  .timeline-image {
+    width: 100%;
+  }
+
+  .timeline-image img {
+    max-width: 200px;
+  }
 }

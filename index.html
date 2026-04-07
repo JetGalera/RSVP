@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
 <div class="container">
+  
   <!-- Top Nav -->
   <nav class="navbar">
     <ul>
@@ -30,7 +32,7 @@
 
   <!-- Wedding Date Section -->
   <section class="date" id="event-details">
-    <h2>Wedding Date:</h2>
+    <h3>Wedding Date:</h3>
     <div class="hero-image">
       <img src="resources/WeddingDate.png" alt="Wedding Date">
     </div>
@@ -46,28 +48,9 @@
     </p>
 
     <div class="centered-button">
-    <button id="view-location">View Map & Details</button>
+    <button type="button id="view-location">View Map & Details</button>
     </div>
   </section>
-
-  <!-- Location Modal -->
-<div id="location-modal" class="popup hidden">
-  <div class="popup-content">
-    <h2>Venue Location</h2>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4739.905840972693!2d121.245027!3d14.639821099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397bfc08a760ec3%3A0x63cd5ab379bc9a2c!2sBy%20the%20Hill%20Antipolo!5e1!3m2!1sen!2sph!4v1775515227233!5m2!1sen!2sph"
-      width="100%" 
-      height="500"
-      style="border:0; border-radius:10px;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Wedding Venue Location">
-    </iframe>
-
-    <button id="close-location">Close</button>
-  </div>
-</div>
 
   <!-- Schedule Section -->
   <section class="schedule">
@@ -149,17 +132,8 @@
   <div class="centered-button">
     <button id="view-outfit">View Outfit Inspiration</button>
   </div>
-
-  <!-- Outfit Inspiration Modal -->
-<div id="outfit-modal" class="popup hidden">
-  <div class="popup-content">
-    <h2>Outfit Inspiration</h2>
-    <img src="resources/OutfitInspiration.png" alt="Outfit Inspiration" style="max-width:100%; border-radius:8px;">
-    <button id="close-outfit" class="details-btn">Close</button>
-  </div>
-</div>
 </section>
-
+  
 <!-- RSVP Section -->
 <section class="rsvp" id="rsvp">
   <h3>RSVP</h3>
@@ -170,25 +144,6 @@
     <button id="confirm-attendance">Confirm My Attendance</button>
   </div>
 </section>
-
-<!-- RSVP Modal -->
-<div id="rsvp-modal" class="popup hidden">
-  <div class="popup-content">
-    <h2>RSVP</h2>
-    <form id="rsvp-form">
-      <input type="text" placeholder="Your Name" id="name" required>
-      <label for="attendance">Will you attend?</label>
-      <select id="attendance" required>
-        <option value="" disabled selected>Select an option</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
-      <button type="submit">Submit</button>
-    </form>
-    <p id="rsvp-message"></p>
-    <button id="close-modal">Close</button>
-  </div>
-</div>
 
 <!-- FAQ Section -->
 <section class="faq" id="faq">
@@ -225,9 +180,56 @@
 </section>
 
 </div>
+
+   <!-- Location Modal -->
+<div id="location-modal" class="popup hidden">
+  <div class="popup-content">
+    <h2>Venue Location</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4739.905840972693!2d121.245027!3d14.639821099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397bfc08a760ec3%3A0x63cd5ab379bc9a2c!2sBy%20the%20Hill%20Antipolo!5e1!3m2!1sen!2sph!4v1775515227233!5m2!1sen!2sph"
+      width="100%" 
+      height="500"
+      style="border:0; border-radius:10px;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Wedding Venue Location">
+    </iframe>
+
+    <button id="close-location">Close</button>
+  </div>
+</div>
+
+  <!-- Outfit Inspiration Modal -->
+<div id="outfit-modal" class="popup hidden">
+  <div class="popup-content">
+    <h2>Outfit Inspiration</h2>
+    <img src="resources/OutfitInspiration.png" alt="Outfit Inspiration" style="max-width:100%; border-radius:8px;">
+    <button id="close-outfit">Close</button>
+  </div>
+</div>
+</section>
+
+  <!-- RSVP Modal -->
+<div id="rsvp-modal" class="popup hidden">
+  <div class="popup-content">
+    <h2>RSVP</h2>
+    <form id="rsvp-form">
+      <input type="text" placeholder="Your Name" id="name" required>
+      <label for="attendance">Will you attend?</label>
+      <select id="attendance" required>
+        <option value="" disabled selected>Select an option</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="rsvp-message"></p>
+    <button id="close-modal">Close</button>
+  </div>
+</div>
   
 <script type="module" src="script.js"></script>
-</body>
 
 </body>
 </html>

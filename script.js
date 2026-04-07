@@ -32,6 +32,19 @@ if (closeLocation && locationModal) {
   });
 }
 
+// Outfit modal logic
+const outfitBtn = document.getElementById("view-outfit");
+const outfitModal = document.getElementById("outfit-modal");
+const closeOutfit = document.getElementById("close-outfit");
+
+outfitBtn.addEventListener("click", () => {
+  outfitModal.classList.remove("hidden");
+});
+
+closeOutfit.addEventListener("click", () => {
+  outfitModal.classList.add("hidden");
+});
+
 // Open RSVP modal
 const openBtn = document.getElementById("confirm-attendance");
 const modal = document.getElementById("rsvp-modal");

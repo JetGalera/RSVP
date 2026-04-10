@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 
+/* =========================
+   BASE
+========================= */
+
 body {
   font-family: "Gochi Hand", sans-serif;
   margin: 0;
@@ -18,10 +22,14 @@ h3 {
 }
 
 .container {
-  max-width: 800px;  
-  margin: 0 auto;    
-  padding: 0 1em;    
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1em;
 }
+
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar {
   position: sticky;
@@ -47,19 +55,35 @@ h3 {
   font-weight: bold;
 }
 
-.date, .location, .schedule, .dress-code, .rsvp, .faq{
+/* =========================
+   SECTIONS
+========================= */
+
+.date,
+.location,
+.schedule,
+.dress-code,
+.rsvp,
+.faq {
   padding: 4em 2em;
   text-align: center;
 }
 
-.location, .dress-code, .faq {
-  background: #fafafa;
-}
-
-.hero, .footer {
+.hero,
+.footer {
   padding: 1em 2em;
   text-align: center;
 }
+
+.location,
+.dress-code,
+.faq {
+  background: #fafafa;
+}
+
+/* =========================
+   TEXT HELPERS
+========================= */
 
 .small-text {
   font-size: 1.2em;
@@ -76,6 +100,15 @@ h3 {
   margin-top: 1em;
 }
 
+.centered-text {
+  text-align: center;
+  line-height: 1.5em;
+}
+
+/* =========================
+   HERO / FOOTER IMAGES
+========================= */
+
 .image-placeholder {
   width: 100%;
   height: 300px;
@@ -88,24 +121,29 @@ h3 {
   color: #888;
 }
 
-.hero-image {
+.hero-image,
+.footer-image {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  aspect-ratio: 3 / 1; /* or try 3 / 1 for wide banner */
+  aspect-ratio: 3 / 1;
   overflow: hidden;
 }
 
-.hero-image img {
+.hero-image img,
+.footer-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.centered-text {
-  text-align: center;
-  line-height: 1.5em;
+.footer-image {
+  padding-top: 1em;
 }
+
+/* =========================
+   TIMELINE
+========================= */
 
 .schedule .timeline-item,
 .dress-code .timeline-item {
@@ -137,12 +175,11 @@ h3 {
 .timeline-image {
   width: 45%;
   height: 200px;
-  /* background: #eee; */
   display: flex;
   justify-content: center;
   align-items: center;
   font-style: italic;
-   color: #888; 
+  color: #888;
 }
 
 .timeline-image img {
@@ -152,8 +189,10 @@ h3 {
   object-fit: contain;
 }
 
+/* =========================
+   BUTTONS
+========================= */
 
-/* Centered button */
 .centered-button {
   text-align: center;
   margin-top: 1em;
@@ -175,13 +214,17 @@ h3 {
   transform: translateY(-2px);
 }
 
+/* =========================
+   POPUPS / MODALS
+========================= */
+
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -199,7 +242,7 @@ h3 {
   width: 90%;
   max-width: 400px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .popup-content input,
@@ -217,19 +260,25 @@ h3 {
   padding: 1em;
 }
 
-/* FAQ Section */
-.faq-item {
-  margin: 1.5em 0; /* less vertical space */
-  border-radius: 8px; /* rounded corners for the whole item */
-  overflow: hidden; /* clip inner borders nicely */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* subtle shadow for depth */
+/* =========================
+   FAQ
+========================= */
+
+.faq {
+  padding-bottom: 2em;
 }
 
-/* Button style */
+.faq-item {
+  margin: 1.5em 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
 .faq-question {
   width: 100%;
-  background: #fafafa; /* light, neutral */
-  border: none; /* remove default borders */
+  background: #fafafa;
+  border: none;
   padding: 1em 1.2em;
   font-size: 1em;
   text-align: left;
@@ -238,21 +287,16 @@ h3 {
   justify-content: space-between;
   align-items: center;
   transition: background 0.3s ease;
-  -webkit-tap-highlight-color: transparent; /* remove iOS blue */
-  outline: none; /* remove focus outline */
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 .faq-question:hover {
-  background: #f0f0f0; /* subtle hover effect on desktop */
+  background: #f0f0f0;
 }
 
 .faq-question:active {
-  background: #e0e0e0; /* tap effect for mobile */
-}
-
-/* Answer */
-.faq {
-  padding-bottom: 2em;
+  background: #e0e0e0;
 }
 
 .faq-answer {
@@ -265,22 +309,29 @@ h3 {
   color: #333;
 }
 
-/* Optional: smooth expand/collapse */
 .faq-answer.show {
   display: block;
   animation: fadeIn 0.3s ease;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-/* Small tweak for mobile */
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 768px) {
   .schedule .timeline-item,
   .dress-code .timeline-item {
-    flex-direction: row; /* keep desktop layout */
+    flex-direction: row;
     align-items: center;
   }
 
@@ -290,22 +341,7 @@ h3 {
   }
 
   .timeline-image img {
-    max-width: 120px; /* shrink for mobile */
+    max-width: 120px;
     height: auto;
   }
-}
-
-.footer-image {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  aspect-ratio: 3 / 1; /* or try 3 / 1 for wide banner */
-  overflow: hidden;
-  padding-top: 1em; 
-}
-
-.footer-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }

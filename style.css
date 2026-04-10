@@ -115,13 +115,13 @@ h3 {
   gap: 1em;
 }
 
-.schedule .timeline-item.left,
-.dress-code .timeline-item.left {
+.schedule .timeline-item.image-right,
+.dress-code .timeline-item.image-right {
   flex-direction: row;
 }
 
-.schedule .timeline-item.right,
-.dress-code .timeline-item.right {
+.schedule .timeline-item.image-left,
+.dress-code .timeline-item.image-left {
   flex-direction: row-reverse;
 }
 

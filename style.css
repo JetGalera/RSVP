@@ -309,21 +309,3 @@ h3 {
   height: 100%;
   object-fit: cover;
 }
-
-/* Mobile Responsiveness*/
-@media (max-width: 768px) {
-  .schedule .timeline-item,
-  .dress-code .timeline-item {
-    flex-direction: column !important;
-    text-align: center;
-  }
-
-  .timeline-text,
-  .timeline-image {
-    width: 100%;
-  }
-
-  .timeline-image img {
-    max-width: 200px;
-  }
-}

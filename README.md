@@ -87,7 +87,7 @@ Perfect for customization and learning front-end fundamentals.
 
 ## ❤️ Credits
 
-Designed and developed by **Josh + Rain**
+Designed by **Josh + Rain** and developed by Jet
 With a little help from caffeine ☕ and determination 💪
 
 ---

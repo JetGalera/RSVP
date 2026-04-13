@@ -33,19 +33,32 @@ if (closeLocation && locationModal) {
 }
 
 // Outfit modal logic
-const outfitBtn = document.getElementById("view-outfit");
-const outfitModal = document.getElementById("outfit-modal");
-const closeOutfit = document.getElementById("close-outfit");
+const images = [
+  "resources/OutfitInspiration.png",
+  "resources/Outfit2.png",
+  "resources/Outfit3.png",
+  "resources/Outfit4.png"
+];
 
-if (outfitBtn && outfitModal) {
-  outfitBtn.addEventListener("click", () => {
-    outfitModal.classList.remove("hidden");
-  });
+let currentIndex = 0;
+
+const carouselImage = document.getElementById("carousel-image");
+const prevBtn = document.querySelector(".carousel-btn.prev");
+const nextBtn = document.querySelector(".carousel-btn.next");
+
+function updateImage() {
+  carouselImage.src = images[currentIndex];
 }
 
-if (closeOutfit && outfitModal) {
-  closeOutfit.addEventListener("click", () => {
-    outfitModal.classList.add("hidden");
+if (prevBtn && nextBtn) {
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
   });
 }
 

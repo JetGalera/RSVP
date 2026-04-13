@@ -284,20 +284,32 @@ h3 {
   max-height: 400px;
   object-fit: contain;
   border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Buttons */
 .carousel-btn {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  bottom: 10px;
+  top: auto;
+  transform: none;
+
+  background: rgba(0,0,0,0.6);
   color: #fff;
   border: none;
-  font-size: 1.5em;
-  padding: 0.3em 0.6em;
+  font-size: 1.2em;
+  padding: 0.4em 0.7em;
   cursor: pointer;
   border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.carousel-btn.prev {
+  left: 15px;
+}
+
+.carousel-btn.next {
+  right: 15px;
 }
 
 .carousel-btn.prev {
@@ -310,6 +322,7 @@ h3 {
 
 .carousel-btn:hover {
   background: rgba(0,0,0,0.8);
+  opacity: 1;
 }
 
 /* =========================

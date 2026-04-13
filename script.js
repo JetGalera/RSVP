@@ -33,6 +33,23 @@ if (closeLocation && locationModal) {
 }
 
 // Outfit modal logic
+const outfitBtn = document.getElementById("view-outfit");
+const outfitModal = document.getElementById("outfit-modal");
+const closeOutfit = document.getElementById("close-outfit");
+
+if (outfitBtn && outfitModal) {
+  outfitBtn.addEventListener("click", () => {
+    outfitModal.classList.remove("hidden");
+  });
+}
+
+if (closeOutfit && outfitModal) {
+  closeOutfit.addEventListener("click", () => {
+    outfitModal.classList.add("hidden");
+  });
+}
+
+// Carousel
 const images = [
   "resources/OutfitInspiration.png",
   "resources/Outfit2.png",
@@ -50,7 +67,9 @@ function updateImage() {
   carouselImage.src = images[currentIndex];
 }
 
-if (prevBtn && nextBtn) {
+if (carouselImage && prevBtn && nextBtn) {
+  updateImage(); 
+
   prevBtn.addEventListener("click", () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     updateImage();

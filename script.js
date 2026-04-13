@@ -88,7 +88,7 @@ if (!allowedNames.includes(name)) {
 
   if (snapshot.exists()) {
     snapshot.forEach((childSnap) => {
-      if (childSnap.val().name.toLowerCase() === name.toLowerCase()) {
+      if (childSnap.val().name.trim().toLowerCase() === name.toLowerCase()) {
         isDuplicate = true;
       }
     });

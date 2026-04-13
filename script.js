@@ -70,6 +70,18 @@ rsvpForm.addEventListener("submit", async (e) => {
 
   if (!name || !attendance) return;
 
+// ✅ ADD THIS BLOCK HERE
+  const allowedNames = [
+    "Jet Galera",
+    "Jet Another Galera",
+    "Jet Majestic Galera"
+]  ;
+
+if (!allowedNames.includes(name)) {
+  rsvpMessage.textContent = "Please select your name from the list 💌";
+  return;
+}
+
   const rsvpRef = ref(database, "rsvps");
   const snapshot = await get(rsvpRef);
   let isDuplicate = false;

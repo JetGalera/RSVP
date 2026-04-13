@@ -37,13 +37,17 @@ const outfitBtn = document.getElementById("view-outfit");
 const outfitModal = document.getElementById("outfit-modal");
 const closeOutfit = document.getElementById("close-outfit");
 
-outfitBtn.addEventListener("click", () => {
-  outfitModal.classList.remove("hidden");
-});
+if (outfitBtn && outfitModal) {
+  outfitBtn.addEventListener("click", () => {
+    outfitModal.classList.remove("hidden");
+  });
+}
 
-closeOutfit.addEventListener("click", () => {
-  outfitModal.classList.add("hidden");
-});
+if (closeOutfit && outfitModal) {
+  closeOutfit.addEventListener("click", () => {
+    outfitModal.classList.add("hidden");
+  });
+}
 
 // Open RSVP modal
 const openBtn = document.getElementById("confirm-attendance");
@@ -52,80 +56,82 @@ const closeBtn = document.getElementById("close-modal");
 const rsvpForm = document.getElementById("rsvp-form");
 const rsvpMessage = document.getElementById("rsvp-message");
 
-openBtn.addEventListener("click", () => {
-  modal.classList.remove("hidden");
-  rsvpMessage.textContent = ""; // clear previous messages
-});
+if (openBtn && modal) {
+  openBtn.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+    rsvpMessage.textContent = "";
+  });
+}
 
-// Close modal
-closeBtn.addEventListener("click", () => {
-  modal.classList.add("hidden");
-});
+if (closeBtn && modal) {
+  closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+}
 
 // Submit RSVP
 if (rsvpForm) {
   rsvpForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const attendance = document.getElementById("attendance").value;
-      });
-}
+    e.preventDefault();
 
-  if (!name || !attendance) return;
+    const name = document.getElementById("name").value.trim();
+    const attendance = document.getElementById("attendance").value;
 
-// ✅ ADD THIS BLOCK HERE
-  const allowedNames = [
-    "Jet Galera",
-    "Jet Another Galera",
-    "Jet Majestic Galera"
-]  ;
+    if (!name || !attendance) return;
 
-if (!allowedNames.includes(name)) {
-  rsvpMessage.textContent = "Please select your name from the list 💌";
-  return;
-}
+    // ✅ Guest list validation
+    const allowedNames = [
+      "Jet Galera",
+      "Jet Another Galera",
+      "Jet Majestic Galera"
+    ];
 
-  const rsvpRef = ref(database, "rsvps");
-  const snapshot = await get(rsvpRef);
-  let isDuplicate = false;
-
-  if (snapshot.exists()) {
-    snapshot.forEach((childSnap) => {
-      if (childSnap.val().name.trim().toLowerCase() === name.toLowerCase()) {
-        isDuplicate = true;
-      }
-    });
-  }
-
-  if (isDuplicate) {
-    rsvpMessage.textContent = `Hi ${name}, you’ve already submitted your RSVP. 💌`;
-    return;
-  }
-
-  const timestamp = new Date().toISOString();
-  await push(rsvpRef, { name, attendance, submittedAt: timestamp });
-
-  rsvpMessage.textContent = attendance === "yes"
-    ? `Yay, ${name}! We're excited you can join us! 🎉`
-    : `Thank you for letting us know, ${name}. ❤️`;
-
-  rsvpForm.reset();
-});
-
-// FAQ Toggle
-document.querySelectorAll('.faq-question').forEach(button => {
-  button.addEventListener('click', () => {
-    const answer = button.nextElementSibling;
-
-    // Toggle answer
-    if (answer.style.display === 'block') {
-      answer.style.display = 'none';
-    } else {
-      answer.style.display = 'block';
+    if (!allowedNames.includes(name)) {
+      rsvpMessage.textContent = "Please select your name from the list 💌";
+      return;
     }
 
-    // Toggle arrow
-    const arrow = button.querySelector('.arrow');
-    arrow.textContent = arrow.textContent === '▼' ? '▲' : '▼';
+    const rsvpRef = ref(database, "rsvps");
+    const snapshot = await get(rsvpRef);
+    let isDuplicate = false;
+
+    if (snapshot.exists()) {
+      snapshot.forEach((childSnap) => {
+        if (childSnap.val().name.trim().toLowerCase() === name.toLowerCase()) {
+          isDuplicate = true;
+        }
+      });
+    }
+
+    if (isDuplicate) {
+      rsvpMessage.textContent = `Hi ${name}, you’ve already submitted your RSVP. 💌`;
+      return;
+    }
+
+    const timestamp = new Date().toISOString();
+    await push(rsvpRef, { name, attendance, submittedAt: timestamp });
+
+    rsvpMessage.textContent =
+      attendance === "yes"
+        ? `Yay, ${name}! We're excited you can join us! 🎉`
+        : `Thank you for letting us know, ${name}. ❤️`;
+
+    rsvpForm.reset();
+  });
+}
+
+// FAQ Toggle
+document.querySelectorAll(".faq-question").forEach((button) => {
+  button.addEventListener("click", () => {
+    const answer = button.nextElementSibling;
+
+    if (answer.style.display === "block") {
+      answer.style.display = "none";
+    } else {
+      answer.style.display = "block";
+    }
+
+    const arrow = button.querySelector(".arrow");
+    arrow.textContent = arrow.textContent === "▼" ? "▲" : "▼";
   });
 });

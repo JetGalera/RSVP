@@ -227,7 +227,18 @@
   <div class="popup-content">
     <h2>RSVP</h2>
     <form id="rsvp-form">
-      <input type="text" placeholder="Your Name" id="name" required>
+      <input 
+        type="text" 
+        id="name" 
+        list="guest-list" 
+        placeholder="Select your name" 
+        required
+      >
+      <datalist id="guest-list">
+        <option value="Jet Galera">
+        <option value="Jet Another Galera">
+        <option value="Jet Majestic Galera">
+    </datalist>
       <label for="attendance">Will you attend?</label>
       <select id="attendance" required>
         <option value="" disabled selected>Select an option</option>

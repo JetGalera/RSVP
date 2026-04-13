@@ -63,10 +63,13 @@ closeBtn.addEventListener("click", () => {
 });
 
 // Submit RSVP
-rsvpForm.addEventListener("submit", async (e) => {
+if (rsvpForm) {
+  rsvpForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = document.getElementById("name").value.trim();
   const attendance = document.getElementById("attendance").value;
+      });
+}
 
   if (!name || !attendance) return;
 
